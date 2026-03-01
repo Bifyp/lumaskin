@@ -1,6 +1,5 @@
 generator client {
   provider = "prisma-client-js"
-   previewFeatures = []
 }
 
 datasource db {
@@ -8,16 +7,76 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+model Account {
+  id                String  @id @default(cuid())
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String?
+  access_token      String?
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String?
+  session_state     String?
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+}
+
+model Session {
+  id           String   @id @default(cuid())
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model VerificationToken {
+  identifier String
+  token      String   @unique
+  expires    DateTime
+
+  @@unique([identifier, token])
+}
 
 model User {
-  id        String   @id @default(cuid())
-  name      String?
-  email     String   @unique
-  password  String?
-  image     String?
-  role      String   @default("user")
-  createdAt DateTime @default(now())
+  id            String     @id @default(cuid())
+  name          String?
+  email         String     @unique
+  emailVerified DateTime?
+  password      String?
+  image         String?
+  role          String     @default("user")
+  createdAt     DateTime   @default(now())
+
+  accounts      Account[]
+  sessions      Session[]
+  bookings      Booking[]
 }
+
+model Booking {
+  id        String   @id @default(cuid())
+  userId    String?
+  user      User?    @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  firstName String
+  lastName  String
+  phone     String
+  email     String
+
+  serviceName String
+  date        DateTime
+  time        String
+  comment     String?
+
+  status    String   @default("pending")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
 model Gallery {
   id        String   @id @default(cuid())
   url       String
@@ -25,3 +84,69 @@ model Gallery {
   createdAt DateTime @default(now())
 }
 
+model Translation {
+  id        String   @id @default(cuid())
+  locale    String
+  namespace String
+  key       String
+  value     String
+}
+
+model Package {
+  id        String     @id @default(cuid())
+  title     String
+  badge     String?
+  sessions  String
+  price     Int
+  oldPrice  Int
+  savings   String
+  popular   Boolean    @default(false)
+  benefits  Benefit[]
+}
+
+model Benefit {
+  id        String   @id @default(cuid())
+  text      String
+  packageId String
+  package   Package  @relation(fields: [packageId], references: [id], onDelete: Cascade)
+}
+
+model Service {
+  id    String @id @default(cuid())
+  icon  String
+  title String
+  desc  String
+}
+
+model ContactInfo {
+  id      String @id @default(cuid())
+  icon    String
+  title   String
+  info    String
+  subinfo String?
+}
+
+model WorkHour {
+  id    String @id @default(cuid())
+  day   String
+  hours String
+  type  String
+}
+
+model CTA {
+  id          String @id @default(cuid())
+  title       String
+  titleLine2  String?
+  titleAccent String?
+  description String
+  bookingBtn  String
+  callBtn     String
+}
+
+model EmailCode {
+  id        String   @id @default(cuid())
+  email     String
+  code      String
+  expiresAt DateTime
+  createdAt DateTime @default(now())
+}

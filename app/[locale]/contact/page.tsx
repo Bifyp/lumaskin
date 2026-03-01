@@ -132,10 +132,10 @@ export default function ContactPage() {
 
                 <button 
                   type="submit"
-                  className="group relative w-full py-5 bg-gold text-white font-sans uppercase tracking-widest text-sm rounded-md overflow-hidden transition-all duration-300 hover:shadow-2xl hover:-translate-y-1"
+                  className="group relative w-full py-5 bg-gold text-graphite font-sans uppercase tracking-widest text-sm rounded-md overflow-hidden transition-all duration-300 hover:shadow-2xl hover:-translate-y-1"
                 >
                   <span className="relative z-10">{t('form.submitButton')}</span>
-                  <div className="absolute inset-0 bg-graphite transform translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
+                  <div className="absolute inset-0 bg-graphite/20 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
                 </button>
 
                 <p className="text-center text-graphite/50 text-sm">
@@ -193,7 +193,6 @@ export default function ContactPage() {
 
               <div className="relative">
                 <div className="absolute -top-6 -left-6 w-full h-full border-2 border-gold/20 -z-10"></div>
-                {/* Заглушка для карты - в реальном проекте вставить iframe Google Maps */}
                 <div className="w-full h-125 bg-linear-to-br from-gold/10 to-graphite/10 shadow-2xl flex items-center justify-center">
                   <div className="text-center p-8">
                     <span className="text-6xl mb-4 block">🗺️</span>
@@ -210,40 +209,40 @@ export default function ContactPage() {
       </section>
 
       {/* РЕЖИМ РАБОТЫ */}
-      <section className="py-32 bg-graphite text-white fade-up">
+      <section className="py-32 bg-graphite text-graphite fade-up">
         <div className="container px-6">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-16">
-              <h2 className="text-5xl font-serif mb-6">{t('hours.title')}</h2>
+              <h2 className="text-5xl font-serif mb-6 text-gold">{t('hours.title')}</h2>
               <div className="w-20 h-px bg-gold mx-auto"></div>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <div className="bg-white/5 p-8 border border-gold/20">
+              <div className="bg-graphite/5 p-8 border border-gold/20">
                 <h3 className="text-2xl font-serif mb-6 text-gold">{t('hours.weekdays.title')}</h3>
                 <div className="space-y-3">
                   {t.raw('hours.weekdays.schedule').map((schedule: any, idx: number) => (
-                    <div key={idx} className="flex justify-between items-center pb-3 border-b border-white/10">
-                      <span className="text-white/90">{schedule.day}</span>
+                    <div key={idx} className="flex justify-between items-center pb-3 border-b border-graphite/20">
+                      <span className="text-graphite">{schedule.day}</span>
                       <span className="text-gold font-sans">{schedule.hours}</span>
                     </div>
                   ))}
                 </div>
               </div>
 
-              <div className="bg-white/5 p-8 border border-gold/20">
+              <div className="bg-graphite/5 p-8 border border-gold/20">
                 <h3 className="text-2xl font-serif mb-6 text-gold">{t('hours.weekend.title')}</h3>
                 <div className="space-y-3">
                   {t.raw('hours.weekend.schedule').map((schedule: any, idx: number) => (
-                    <div key={idx} className="flex justify-between items-center pb-3 border-b border-white/10">
-                      <span className="text-white/90">{schedule.day}</span>
+                    <div key={idx} className="flex justify-between items-center pb-3 border-b border-graphite/20">
+                      <span className="text-graphite">{schedule.day}</span>
                       <span className="text-gold font-sans">{schedule.hours}</span>
                     </div>
                   ))}
                 </div>
 
                 <div className="mt-8 pt-6 border-t border-gold/20">
-                  <p className="text-white/70 text-sm leading-relaxed">
+                  <p className="text-graphite/70 text-sm leading-relaxed">
                     {t('hours.note')}
                   </p>
                 </div>
@@ -302,10 +301,10 @@ export default function ContactPage() {
           <div className="flex gap-6 justify-center items-center flex-wrap">
             <a 
               href="/booking" 
-              className="group relative px-10 py-4 bg-gold text-white font-sans uppercase tracking-widest text-sm rounded-sm overflow-hidden transition-all duration-300 hover:shadow-2xl hover:shadow-gold/30 hover:-translate-y-1"
+              className="group relative px-10 py-4 bg-gold text-graphite font-sans uppercase tracking-widest text-sm rounded-sm overflow-hidden transition-all duration-300 hover:shadow-2xl hover:shadow-gold/30 hover:-translate-y-1"
             >
               <span className="relative z-10">{t('cta.bookingButton')}</span>
-              <div className="absolute inset-0 bg-graphite transform translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
+              <div className="absolute inset-0 bg-graphite/20 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
             </a>
 
             <a 

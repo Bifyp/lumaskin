@@ -8,7 +8,12 @@
     "contact": "Kontakt",
     "login": "Zaloguj się",
     "logout": "Wyloguj się",
-    "language": "Język"
+    "language": "Język",
+    "user": "Użytkownik",
+    "admin": "Administrator",
+    "account": "Mój konto",
+    "register": "Zarejestruj się",
+    "adminPanel": "Panel administracyjny"
   },
   "HomePage": {
     "hero": {
@@ -189,102 +194,125 @@
       "servicesButton": "Zobacz usługi"
     }
   },
-  "BookingPage": {
-    "hero": {
-      "subtitle": "Rezerwacja online",
-      "title": "Umów się",
-      "titleAccent": "na wizytę"
-    },
-    "form": {
-      "description": "Wypełnij formularz, a my skontaktujemy się z Tobą w najbliższym czasie w celu potwierdzenia rezerwacji",
-      "firstName": "Imię",
-      "lastName": "Nazwisko",
-      "phone": "Telefon",
-      "email": "Email",
-      "service": "Wybierz usługę",
-      "selectService": "-- Wybierz usługę --",
-      "services": [
-        "Oczyszczanie twarzy",
-        "Peeling chemiczny",
-        "Masaż twarzy",
-        "Pielęgnacja okolic oczu",
-        "Mezoterapia",
-        "Biorew italizacja",
-        "Maski algowe",
-        "Konsultacja kosmetologa"
-      ],
-      "date": "Preferowana data",
-      "time": "Preferowany czas",
-      "selectTime": "-- Wybierz godzinę --",
-      "timeSlots": [
-        "10:00 - 11:00",
-        "11:00 - 12:00",
-        "12:00 - 13:00",
-        "13:00 - 14:00",
-        "14:00 - 15:00",
-        "15:00 - 16:00",
-        "16:00 - 17:00",
-        "17:00 - 18:00",
-        "18:00 - 19:00",
-        "19:00 - 20:00"
-      ],
-      "comment": "Komentarz",
-      "commentPlaceholder": "Opowiedz o swoich życzeniach lub cechach skóry...",
-      "submitButton": "Wyślij zgłoszenie",
-      "requiredFields": "* Pola wymagane",
-      "callText": "Lub zadzwoń do nas bezpośrednio:",
-      "phone": "+48 123 456 789"
-    },
-    "info": {
-      "title": "Co warto wiedzieć przed wizytą",
-      "items": [
-        {
-          "icon": "📋",
-          "title": "Przygotowanie",
-          "desc": "Przyjdź bez makijażu lub pomożemy Ci go zmyć. Dzień przed zabiegiem unikaj agresywnych środków."
-        },
-        {
-          "icon": "⏱️",
-          "title": "Czas trwania",
-          "desc": "Zabiegi trwają od 30 do 120 minut w zależności od wybranej usługi. Zaplanuj czas z wyprzedzeniem."
-        },
-        {
-          "icon": "✨",
-          "title": "Po zabiegu",
-          "desc": "Udzielimy indywidualnych zaleceń dotyczących pielęgnacji i w razie potrzeby wyznaczymy kolejną wizytę."
-        }
-      ]
-    },
-    "faq": {
-      "subtitle": "Często zadawane pytania",
-      "title": "Odpowiedzi na Twoje pytania",
-      "items": [
-        {
-          "q": "Czy można anulować lub przełożyć rezerwację?",
-          "a": "Tak, ale prosimy o zgłoszenie tego minimum 24 godziny wcześniej. Skontaktuj się z nami telefonicznie lub przez WhatsApp."
-        },
-        {
-          "q": "Jak często trzeba wykonywać zabiegi?",
-          "a": "To zależy od rodzaju zabiegu i stanu skóry. Po konsultacji ustalimy indywidualny harmonogram."
-        },
-        {
-          "q": "Czy są przeciwwskazania?",
-          "a": "Tak, niektóre zabiegi mają przeciwwskazania. Koniecznie poinformuj o chorobach przewlekłych, ciąży lub alergiach."
-        },
-        {
-          "q": "Jakie formy płatności przyjmujecie?",
-          "a": "Przyjmujemy gotówkę, karty Visa/Mastercard i BLIK. Płatność następuje po zabiegu."
-        }
-      ]
-    }
+ "BookingPage": {
+  "hero": {
+    "subtitle": "Rezerwacja online",
+    "title": "Stwórz swój",
+    "titleAccent": "idealny zabieg"
   },
+
+  "form": {
+    "title": "Twoje dane",
+    "description": "Wypełnij formularz poniżej, aby dokończyć rezerwację.",
+
+    "fields": {
+      "firstName": {
+        "label": "Imię",
+        "placeholder": "Wpisz swoje imię"
+      },
+      "lastName": {
+        "label": "Nazwisko",
+        "placeholder": "Wpisz swoje nazwisko"
+      },
+      "phone": {
+        "label": "Telefon",
+        "placeholder": "+48 000 000 000"
+      },
+      "email": {
+        "label": "Email",
+        "placeholder": "example@mail.com"
+      },
+      "service": {
+        "label": "Usługa",
+        "placeholder": "Wybierz usługę",
+        "options": [
+          "Oczyszczanie twarzy",
+          "Masaż",
+          "Peeling",
+          "Depilacja laserowa",
+          "Zabieg pielęgnacyjny"
+        ]
+      },
+      "date": {
+        "label": "Data",
+        "placeholder": "Wybierz datę"
+      },
+      "time": {
+        "label": "Godzina",
+        "placeholder": "Wybierz godzinę",
+        "options": [
+          "10:00",
+          "11:00",
+          "12:00",
+          "13:00",
+          "14:00",
+          "15:00",
+          "16:00",
+          "17:00",
+          "18:00"
+        ]
+      },
+      "comment": {
+        "label": "Komentarz",
+        "placeholder": "Dodatkowe uwagi lub preferencje (opcjonalnie)"
+      }
+    },
+
+    "submit": "Zarezerwuj",
+    "submitButton": "Potwierdź rezerwację",
+    "requiredNote": "Pola oznaczone * są obowiązkowe.",
+    "success": "Rezerwacja zakończona pomyślnie!"
+  },
+
+  "contact": {
+    "text": "Jeśli masz pytania lub wolisz zarezerwować telefonicznie:",
+    "phone": "+48 000 000 000"
+  },
+
+  "info": {
+    "title": "Dlaczego klienci wybierają nas",
+    "items": [
+      {
+        "title": "Zabiegi premium",
+        "text": "Używamy wyłącznie certyfikowanych kosmetyków i nowoczesnych technik pielęgnacji."
+      },
+      {
+        "title": "Indywidualne podejście",
+        "text": "Każdy zabieg dobierany jest indywidualnie do potrzeb Twojej skóry."
+      },
+      {
+        "title": "Atmosfera spokoju",
+        "text": "Wnętrze i muzyka tworzą klimat spa, a nie tylko zwykłego zabiegu."
+      }
+    ]
+  },
+
+  "faq": {
+    "subtitle": "Najczęściej zadawane pytania",
+    "title": "Wszystko o rezerwacjach i zabiegach",
+    "items": [
+      {
+        "question": "Czy muszę płacić z góry?",
+        "answer": "Nie, przedpłata nie jest wymagana. Płatność odbywa się po zabiegu w salonie."
+      },
+      {
+        "question": "Czy mogę przełożyć lub anulować wizytę?",
+        "answer": "Tak, możesz przełożyć lub anulować wizytę najpóźniej 24 godziny przed zabiegiem."
+      },
+      {
+        "question": "Co jeśli się spóźnię?",
+        "answer": "Jeśli spóźnienie wynosi mniej niż 15 minut, postaramy się wykonać pełny zabieg. Przy większym spóźnieniu czas zabiegu może zostać skrócony."
+      }
+    ]
+  }
+},
   "ContactPage": {
     "hero": {
       "subtitle": "Skontaktuj się z nami",
       "title": "Jesteśmy",
       "titleAccent": "w kontakcie"
     },
-    "info": {
+    "contactInfo": {
       "items": [
         {
           "icon": "📍",
@@ -306,173 +334,178 @@
         }
       ]
     },
-    "form": {
-      "subtitle": "Napisz do nas",
-      "title": "Masz pytania?",
-      "description": "Wypełnij formularz, a my skontaktujemy się z Tobą w najbliższym czasie",
-      "name": "Imię",
-      "namePlaceholder": "Twoje imię",
-      "email": "Email",
-      "emailPlaceholder": "example@mail.com",
-      "phone": "Telefon",
-      "phonePlaceholder": "+48 000 000 000",
-      "subject": "Temat zgłoszenia",
-      "selectSubject": "-- Wybierz temat --",
-      "subjects": [
-        "Pytanie o usługi",
-        "Umówienie wizyty",
-        "Konsultacja",
-        "Współpraca",
-        "Inne"
-      ],
-      "message": "Wiadomość",
-      "messagePlaceholder": "Napisz swoją wiadomość...",
-      "submitButton": "Wyślij wiadomość",
-      "requiredFields": "* Pola wymagane"
-    },
-    "location": {
-      "subtitle": "Nasza lokalizacja",
-      "title": "Odwiedź nasze",
-      "titleLine2": "studio",
-      "description": "Znajdujemy się w samym centrum Poznania, w cichym i przytulnym miejscu. Wygodny dojazd komunikacją miejską i parking w pobliżu.",
-      "transport": [
-        {
-          "icon": "🚗",
-          "title": "Samochodem",
-          "desc": "Bezpłatny parking przed budynkiem"
-        },
-        {
-          "icon": "🚌",
-          "title": "Komunikacja miejska",
-          "desc": "Przystanek 'Plac Wolności' 3 minuty pieszo"
-        },
-        {
-          "icon": "🚶",
-          "title": "Pieszo",
-          "desc": "5 minut od głównego placu"
-        }
-      ],
-      "mapButton": "Otwórz w Google Maps"
-    },
-    "hours": {
-      "title": "Godziny otwarcia",
-      "weekdays": {
-        "title": "Dni powszednie",
-        "days": [
-          { "day": "Poniedziałek", "hours": "10:00 - 20:00" },
-          { "day": "Wtorek", "hours": "10:00 - 20:00" },
-          { "day": "Środa", "hours": "10:00 - 20:00" },
-          { "day": "Czwartek", "hours": "10:00 - 20:00" },
-          { "day": "Piątek", "hours": "10:00 - 20:00" }
+   
+  "form": {
+    "subtitle": "Napisz do nas",
+    "title": "Masz pytania?",
+    "description": "Wypełnij formularz, a skontaktujemy się z Tobą w najbliższym czasie",
+
+    "fields": {
+      "name": { "label": "Imię", "placeholder": "Twoje imię" },
+      "email": { "label": "Email", "placeholder": "example@mail.com" },
+      "phone": { "label": "Telefon", "placeholder": "+48 000 000 000" },
+      "subject": {
+        "label": "Temat wiadomości",
+        "placeholder": "-- Wybierz temat --",
+        "options": [
+          "Pytanie o usługi",
+          "Rezerwacja wizyty",
+          "Konsultacja",
+          "Współpraca",
+          "Inne"
         ]
       },
-      "weekend": {
-        "title": "Weekend",
-        "days": [
-          { "day": "Sobota", "hours": "11:00 - 18:00" },
-          { "day": "Niedziela", "hours": "Nieczynne" }
-        ],
-        "note": "Rezerwacja po wcześniejszym uzgodnieniu. Możliwa praca w weekendy po uzgodnieniu."
+      "message": {
+        "label": "Wiadomość",
+        "placeholder": "Napisz swoją wiadomość..."
       }
     },
-    "social": {
-      "subtitle": "Śledź nas",
-      "title": "Jesteśmy w mediach społecznościowych",
-      "description": "Obserwuj nasze strony, aby być na bieżąco z nowościami, specjalnymi ofertami i przydatnymi poradami dotyczącymi pielęgnacji skóry",
-      "platforms": [
-        { "name": "Instagram", "icon": "📷" },
-        { "name": "Facebook", "icon": "📘" },
-        { "name": "WhatsApp", "icon": "💬" }
+
+    "submitButton": "Wyślij wiadomość",
+    "requiredFields": "* Pola obowiązkowe",
+    "requiredNote": "* Pola obowiązkowe"
+  },
+
+  "location": {
+    "subtitle": "Nasza lokalizacja",
+    "title": "Odwiedź nasze",
+    "titleLine2": "studio",
+    "description": "Znajdujemy się w samym centrum Poznania, w cichym i przytulnym miejscu. Łatwy dojazd komunikacją miejską oraz parking tuż obok.",
+    "transport": [
+      { "icon": "🚗", "title": "Samochodem", "desc": "Darmowy parking przed budynkiem" },
+      { "icon": "🚌", "title": "Komunikacja miejska", "desc": "Przystanek 'Plac Wolności' — 3 minuty pieszo" },
+      { "icon": "🚶", "title": "Pieszo", "desc": "5 minut od Starego Rynku" }
+    ],
+    "mapButton": "Otwórz w Google Maps",
+    "mapLink": "Pokaż na mapie",
+    "mapPlaceholder": "Tutaj pojawi się mapa"
+  },
+
+  "hours": {
+    "title": "Godziny otwarcia",
+    "weekdays": {
+      "title": "Dni robocze",
+      "schedule": [
+        { "day": "Poniedziałek", "hours": "10:00 - 20:00" },
+        { "day": "Wtorek", "hours": "10:00 - 20:00" },
+        { "day": "Środa", "hours": "10:00 - 20:00" },
+        { "day": "Czwartek", "hours": "10:00 - 20:00" },
+        { "day": "Piątek", "hours": "10:00 - 20:00" }
       ]
     },
-    "cta": {
-      "title": "Gotowy zapisać się",
-      "titleAccent": "na zabieg",
-      "description": "Skontaktuj się z nami wygodnym sposobem, a dobierzemy idealny czas na Twoją wizytę",
-      "bookButton": "Rezerwacja online",
-      "callButton": "Zadzwoń"
-    }
+    "weekend": {
+      "title": "Weekend",
+      "schedule": [
+        { "day": "Sobota", "hours": "11:00 - 18:00" },
+        { "day": "Niedziela", "hours": "Nieczynne" }
+      ],
+      "note": "Wizyty po wcześniejszym umówieniu. Możliwa praca w weekendy po uzgodnieniu."
+    },
+    "note": "Wizyty po wcześniejszym umówieniu. Możliwa praca w weekendy po uzgodnieniu."
   },
+
+  "social": {
+    "subtitle": "Śledź nas",
+    "title": "Jesteśmy w social media",
+    "description": "Obserwuj nasze profile, aby być na bieżąco z nowościami, promocjami i poradami pielęgnacyjnymi",
+    "platforms": [
+      { "name": "Instagram", "icon": "📷" },
+      { "name": "Facebook", "icon": "📘" },
+      { "name": "WhatsApp", "icon": "💬" }
+    ]
+  },
+
+  "cta": {
+    "title": "Gotowi na rezerwację",
+    "titleLine2": "który pakiet",
+    "titleAccent": "wybrać",
+    "description": "Skontaktuj się z nami w wygodny dla Ciebie sposób, a dobierzemy idealny termin wizyty",
+    "bookingButton": "Rezerwacja online",
+    "bookButton": "Rezerwacja online",
+    "callButton": "Zadzwoń"
+  }
+},
+
   "GalleryPage": {
-    "hero": {
-      "subtitle": "Nasze prace",
-      "title": "Portfolio",
-      "titleAccent": "LumaSkin",
-      "description": "Rezultaty, z których jesteśmy dumni"
-    },
-    "emptyState": "Póki co nie ma załadowanych zdjęć",
-    "categories": {
-      "subtitle": "Nasze zabiegi",
-      "title": "Co oferujemy",
-      "items": [
-        { "icon": "✨", "name": "Oczyszczanie twarzy", "count": "12+ prac" },
-        { "icon": "🌟", "name": "Peeling", "count": "8+ prac" },
-        { "icon": "💎", "name": "Masaż", "count": "15+ prac" },
-        { "icon": "💉", "name": "Iniekcje", "count": "10+ prac" }
-      ]
-    },
-    "reviews": {
-      "subtitle": "Opinie klientów",
-      "title": "Rezultaty mówią same",
-      "items": [
-        {
-          "name": "Anna M.",
-          "text": "Niesamowity rezultat po kursie oczyszczeń! Skóra promienieje, pory wyraźnie się zwęziły. Ogromne dzięki!"
-        },
-        {
-          "name": "Katarzyna L.",
-          "text": "Masaż twarzy to coś! Owal się podciągnął, obrzęk zniknął. Czuję się o 10 lat młodsza."
-        }
-      ]
-    },
-    "cta": {
-      "title": "Chcesz taki sam",
-      "titleAccent": "rezultat",
-      "description": "Umów się na konsultację, a stworzymy program specjalnie dla Ciebie",
-      "bookButton": "Umów się na wizytę",
-      "servicesButton": "Nasze usługi"
-    }
+  "hero": {
+    "subtitle": "Nasze realizacje",
+    "title": "Portfolio",
+    "titleAccent": "LumaSkin",
+    "description": "Efekty, z których jesteśmy dumni"
   },
+
+  "gallery": {
+    "emptyMessage": "Brak dodanych zdjęć",
+    "photoLabel": "Zdjęcie",
+    "brandName": "LumaSkin"
+  },
+
+  "categories": {
+    "subtitle": "Nasze zabiegi",
+    "title": "Co oferujemy",
+    "items": [
+      { "icon": "✨", "name": "Oczyszczanie twarzy", "count": "12+ realizacji" },
+      { "icon": "🌟", "name": "Peeling", "count": "8+ realizacji" },
+      { "icon": "💎", "name": "Masaż", "count": "15+ realizacji" },
+      { "icon": "💉", "name": "Iniekcje", "count": "10+ realizacji" }
+    ]
+  },
+
+  "cta": {
+    "title": "Chcesz taki sam",
+    "titleAccent": "efekt",
+    "description": "Umów się na konsultację, a stworzymy program pielęgnacji specjalnie dla Ciebie",
+    "bookingButton": "Zarezerwuj",
+    "servicesButton": "Usługi"
+  }
+  },
+ 
   "LoginPage": {
     "hero": {
       "title": "Logowanie do",
-      "titleAccent": "konta osobistego"
+      "titleAccent": "panelu klienta"
     },
     "form": {
-      "email": "Email",
-      "emailPlaceholder": "example@mail.com",
-      "password": "Hasło",
-      "passwordPlaceholder": "••••••••",
+      "email": {
+        "label": "Adres e-mail",
+        "placeholder": "example@mail.com"
+      },
+      "password": {
+        "label": "Hasło",
+        "placeholder": "••••••••"
+      },
       "rememberMe": "Zapamiętaj mnie",
       "forgotPassword": "Zapomniałeś hasła?",
-      "loginButton": "Zaloguj się",
+      "submitButton": "Zaloguj się",
       "or": "lub",
-      "googleButton": "Zaloguj się przez Google",
+      "googleButton": "Zaloguj przez Google",
       "noAccount": "Nie masz konta?",
       "registerLink": "Zarejestruj się",
-      "description": "Zaloguj się, aby śledzić swoje rezerwacje i historię zabiegów"
+      "loginNote": "Zaloguj się, aby śledzić swoje wizyty i historię zabiegów",
+      "description": "Zaloguj się, aby śledzić swoje wizyty i historię zabiegów"
     },
     "benefits": {
-      "title": "Zalety konta osobistego",
+      "title": "Korzyści panelu klienta",
       "items": [
         {
           "icon": "📅",
-          "title": "Historia rezerwacji",
-          "desc": "Przeglądaj wszystkie swoje przeszłe i przyszłe wizyty w jednym miejscu"
+          "title": "Historia wizyt",
+          "desc": "Przeglądaj wszystkie swoje przeszłe i przyszłe rezerwacje w jednym miejscu"
         },
         {
           "icon": "🎁",
-          "title": "Bonusy i zniżki",
+          "title": "Bonusy i rabaty",
           "desc": "Zbieraj punkty i otrzymuj ekskluzywne oferty"
         },
         {
           "icon": "⚡",
           "title": "Szybka rezerwacja",
-          "desc": "Zapisuj się na zabiegi jednym kliknięciem bez ponownego wprowadzania danych"
+          "desc": "Rezerwuj zabiegi jednym kliknięciem bez ponownego wpisywania danych"
         }
       ]
     }
   },
+
   "RegisterPage": {
     "hero": {
       "title": "Utwórz",
@@ -482,14 +515,23 @@
       "description": "Dołącz do LumaSkin i uzyskaj dostęp do ekskluzywnych ofert"
     },
     "form": {
-      "name": "Imię i nazwisko",
-      "namePlaceholder": "Anna Kowalska",
-      "email": "Email",
-      "emailPlaceholder": "example@mail.com",
-      "password": "Hasło",
-      "passwordPlaceholder": "••••••••",
-      "passwordHint": "Minimum 8 znaków",
-      "confirmPassword": "Potwierdź hasło",
+      "name": {
+        "label": "Imię i nazwisko",
+        "placeholder": "Anna Kowalska"
+      },
+      "email": {
+        "label": "Email",
+        "placeholder": "example@mail.com"
+      },
+      "password": {
+        "label": "Hasło",
+        "placeholder": "••••••••",
+        "hint": "Minimum 8 znaków"
+      },
+      "confirmPassword": {
+        "label": "Potwierdź hasło",
+        "placeholder": "••••••••"
+      },
       "terms": "Akceptuję",
       "termsLink": "warunki użytkowania",
       "and": "i",
@@ -498,167 +540,144 @@
       "or": "lub",
       "googleButton": "Rejestracja przez Google",
       "haveAccount": "Masz już konto?",
-      "loginLink": "Zaloguj się"
+      "loginLink": "Zaloguj się",
+      "passwordsDontMatch": "Hasła nie są zgodne",
+      "verifyMessage": "Wysłaliśmy kod weryfikacyjny na adres",
+      "code": {
+        "label": "Kod weryfikacyjny",
+        "placeholder": "Wprowadź 6-cyfrowy kod"
+      },
+      "verifyButton": "Potwierdź"
     },
     "benefits": {
-      "title": "Co Cię czeka po rejestracji",
+      "title": "Co czeka Cię po rejestracji",
       "items": [
-        {
-          "icon": "🎉",
-          "title": "Bonus powitalny",
-          "desc": "Zniżka 10% na pierwszy zabieg"
-        },
-        {
-          "icon": "📱",
-          "title": "Konto osobiste",
-          "desc": "Zarządzaj rezerwacjami online"
-        },
-        {
-          "icon": "💌",
-          "title": "Ekskluzywne oferty",
-          "desc": "Specjalne promocje tylko dla Ciebie"
-        },
-        {
-          "icon": "🌟",
-          "title": "Program lojalnościowy",
-          "desc": "Zbieraj punkty za wizyty"
-        }
+        { "icon": "🎉", "title": "Bonus powitalny", "desc": "10% zniżki na pierwszy zabieg" },
+        { "icon": "📱", "title": "Panel klienta", "desc": "Zarządzaj wizytami online" },
+        { "icon": "💌", "title": "Ekskluzywne oferty", "desc": "Specjalne promocje tylko dla Ciebie" },
+        { "icon": "🌟", "title": "Program lojalnościowy", "desc": "Zbieraj punkty za wizyty" }
       ]
     },
     "security": {
       "title": "Twoje dane są chronione",
-      "description": "Używamy nowoczesnych technologii szyfrowania do ochrony Twoich danych osobowych. Twoje dane nigdy nie zostaną przekazane osobom trzecim bez Twojej zgody."
+      "description": "Używamy nowoczesnych technologii szyfrowania, aby chronić Twoje dane osobowe. Twoje informacje nigdy nie zostaną przekazane osobom trzecim bez Twojej zgody."
     }
   },
-  "ServicesPage": {
-    "hero": {
-      "subtitle": "Co oferujemy",
-      "title": "Nasze",
-      "titleAccent": "usługi"
-    }
+"PackagesPage": {
+  "hero": {
+    "subtitle": "Profesjonalne pakiety",
+    "title": "Nasze",
+    "titleAccent": "pakiety",
+    "description": "Oszczędzaj kupując zabiegi w pakiecie"
   },
-  "PackagesPage": {
+
+  "packages": [],
+
+  "empty": {
+    "title": "Brak dodanych pakietów",
+    "subtitle": "Dodaj pierwszy pakiet, aby pojawił się na stronie",
+    "button": "Dodaj pakiet"
+  },
+
+  "selectButton": "Wybierz pakiet",
+  "validityNote": "* Pakiety są ważne przez określony czas od daty zakupu"
+}
+,
+
+  "AccountPage": {
     "hero": {
-      "subtitle": "Korzystne oferty",
-      "title": "Pakiety",
-      "titleAccent": "zabiegów",
-      "description": "Oszczędzaj do 20% przy zakupie kursu zabiegów"
+      "title": "Konto użytkownika",
+      "subtitle": "Twoje wizyty, statystyki i ustawienia"
     },
-    "packages": {
-      "start": {
-        "badge": "Początek drogi",
-        "title": "Start",
-        "sessions": "3 zabiegi do wyboru",
-        "price": "350",
-        "oldPrice": "400",
-        "savings": "Oszczędność 50 PLN",
-        "benefits": [
-          "3 dowolne zabiegi",
-          "Konsultacja w prezencie",
-          "Zniżka 10% na środki",
-          "Ważność 3 miesiące"
-        ],
-        "button": "Wybierz pakiet"
-      },
-      "premium": {
-        "badge": "Popularny wybór",
-        "title": "Premium",
-        "sessions": "5 zabiegów do wyboru",
-        "price": "550",
-        "oldPrice": "700",
-        "savings": "Oszczędność 150 PLN",
-        "benefits": [
-          "5 dowolnych zabiegów",
-          "Bezpłatna konsultacja",
-          "Zniżka 15% na środki",
-          "Osobisty plan pielęgnacji",
-          "Ważność 6 miesięcy"
-        ],
-        "button": "Wybierz pakiet"
-      },
-      "vip": {
-        "badge": "Maksimum troski",
-        "title": "VIP",
-        "sessions": "8 zabiegów do wyboru",
-        "price": "850",
-        "oldPrice": "1100",
-        "savings": "Oszczędność 250 PLN",
-        "benefits": [
-          "8 dowolnych zabiegów",
-          "Konsultacje bez ograniczeń",
-          "Zniżka 20% na środki",
-          "Opieka VIP",
-          "Priorytetowa rezerwacja",
-          "Ważność 9 miesięcy"
-        ],
-        "button": "Wybierz pakiet"
-      },
-      "note": "* Pakiety ważne przez wskazany okres od momentu zakupu",
-      "note2": "** Zabiegi można łączyć według własnego uznania"
+
+    "profile": {
+      "guest": "Gość",
+      "editButton": "Edytuj profil"
     },
-    "special": {
-      "subtitle": "Tematyczne kursy",
-      "title": "Programy specjalne",
-      "antiAge": {
-        "title": "Program Anti-Age",
-        "sessions": "6 zabiegów",
-        "price": "1200 PLN",
-        "oldPrice": "1450 PLN",
-        "desc": "Kompleksowa pielęgnacja przeciwstarzeniowa",
-        "includes": [
-          "2 seanse mezoterapii",
-          "2 seanse masażu twarzy",
-          "2 peelingi chemiczne",
-          "Domowa pielęgnacja w prezencie"
-        ],
-        "button": "Zapisz się na kurs"
+
+    "stats": {
+      "title": "Statystyki",
+      "totalBookings": "Łączna liczba wizyt",
+      "upcoming": "Nadchodzące wizyty",
+      "totalSpent": "Łącznie wydano"
+    },
+
+    "quickActions": {
+      "title": "Szybkie akcje",
+      "newBooking": "Nowa rezerwacja",
+      "newBookingDesc": "Zarezerwuj najbliższy dostępny termin",
+      "loyalty": "Program lojalnościowy",
+      "loyaltyDesc": "Zobacz swoje bonusy i korzyści"
+    },
+
+    "bookings": {
+      "upcoming": "Nadchodzące wizyty",
+      "history": "Historia wizyt",
+      "empty": "Nie masz jeszcze żadnych wizyt",
+      "makeFirst": "Zrób pierwszą rezerwację",
+
+      "statuses": {
+        "confirmed": "Potwierdzona",
+        "completed": "Zakończona",
+        "cancelled": "Anulowana",
+        "rescheduled": "Przełożona"
       },
-      "problematic": {
-        "title": "Problematyczna skóra",
-        "sessions": "5 zabiegów",
-        "price": "950 PLN",
-        "oldPrice": "1150 PLN",
-        "desc": "Intensywny program do walki z trądzikiem",
-        "includes": [
-          "3 głębokie oczyszczenia",
-          "2 peelingi migdałowe",
-          "Konsultacja dermatologa",
-          "Plan domowej pielęgnacji"
-        ],
-        "button": "Zapisz się na kurs"
+
+      "actions": {
+        "reschedule": "Przełóż",
+        "cancel": "Anuluj",
+        "bookAgain": "Zarezerwuj ponownie"
       }
     },
-    "benefits": {
-      "title": "Dlaczego warto kupować pakiety",
-      "items": [
-        {
-          "icon": "💰",
-          "title": "Oszczędność",
-          "desc": "Zaoszczędź do 20% w porównaniu z pojedynczymi wizytami"
-        },
-        {
-          "icon": "📈",
-          "title": "Rezultat",
-          "desc": "Regularna pielęgnacja daje stabilny i długoterminowy efekt"
-        },
-        {
-          "icon": "🎁",
-          "title": "Bonusy",
-          "desc": "Konsultacje i zniżki na profesjonalną kosmetykę"
-        },
-        {
-          "icon": "⏰",
-          "title": "Elastyczność",
-          "desc": "Wykorzystaj zabiegi w dogodnym dla siebie czasie"
-        }
-      ]
-    },
-    "cta": {
-      "title": "Nie jesteś pewien, który pakiet",
-      "titleAccent": "wybrać",
-      "description": "Umów się na bezpłatną konsultację, a pomożemy dobrać optymalny program dla Twojej skóry",
-      "consultButton": "Bezpłatna konsultacja",
-      "callButton": "Zadzwoń"
+
+    "admin": {
+      "button": "Przejdź do panelu administratora"
     }
+  },
+"ServicesPage": {
+  "hero": {
+    "subtitle": "Profesjonalne zabiegi",
+    "title": "Nasze",
+    "titleAccent": "usługi",
+    "description": "Indywidualne protokoły, kosmetyki premium i nowoczesne metody dla zdrowej i promiennej skóry"
+  },
+
+  "services": [],
+
+  "empty": {
+    "title": "Brak dodanych usług",
+    "subtitle": "Dodaj pierwszą usługę, aby pojawiła się na stronie",
+    "button": "Dodaj usługę"
+  },
+
+  "list": {
+    "subtitle": "Co oferujemy",
+    "title": "Profesjonalna pielęgnacja",
+    "description": "Każdy zabieg jest tworzony z myślą o potrzebach Twojej skóry i Twoich celach"
+  },
+
+  "serviceCard": {
+    "learnMore": "Zobacz więcej",
+    "selectButton": "Wybierz",
+    "priceFrom": "od"
+  },
+
+  "cta": {
+    "title": "Gotowa wybrać zabieg",
+    "titleAccent": "dla siebie",
+    "description": "Umów się na konsultację, a dobierzemy idealną pielęgnację specjalnie dla Ciebie",
+    "bookButton": "Umów wizytę",
+    "servicesButton": "Wszystkie usługi"
   }
+},
+"ForgotPasswordPage": {
+  "title": "Resetowanie hasła",
+  "description": "Wpisz swój adres e-mail, a wyślemy link do resetowania hasła.",
+  "emailLabel": "Adres e-mail",
+  "emailPlaceholder": "Wpisz swój e-mail",
+  "submit": "Wyślij link",
+  "sentTitle": "Wysłano",
+  "sentDescription": "Jeśli ten e-mail istnieje, wysłaliśmy link do resetowania hasła."
 }
+}
+

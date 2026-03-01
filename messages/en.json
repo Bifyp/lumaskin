@@ -8,7 +8,12 @@
     "contact": "Contact",
     "login": "Log in",
     "logout": "Log out",
-    "language": "Language"
+    "language": "Language",
+    "user": "User",
+    "admin": "Administrator",
+    "account": "My account",
+    "register": "Register",
+    "adminPanel": "Admin panel"
   },
   "HomePage": {
     "hero": {
@@ -189,102 +194,125 @@
       "servicesButton": "View services"
     }
   },
-  "BookingPage": {
-    "hero": {
-      "subtitle": "Online booking",
-      "title": "Book your",
-      "titleAccent": "appointment"
-    },
-    "form": {
-      "description": "Fill out the form and we will contact you shortly to confirm your booking",
-      "firstName": "First name",
-      "lastName": "Last name",
-      "phone": "Phone",
-      "email": "Email",
-      "service": "Select service",
-      "selectService": "-- Select service --",
-      "services": [
-        "Facial cleansing",
-        "Chemical peel",
-        "Facial massage",
-        "Eye area care",
-        "Mesotherapy",
-        "Biorevitalization",
-        "Algae masks",
-        "Cosmetologist consultation"
-      ],
-      "date": "Preferred date",
-      "time": "Preferred time",
-      "selectTime": "-- Select time --",
-      "timeSlots": [
-        "10:00 - 11:00",
-        "11:00 - 12:00",
-        "12:00 - 13:00",
-        "13:00 - 14:00",
-        "14:00 - 15:00",
-        "15:00 - 16:00",
-        "16:00 - 17:00",
-        "17:00 - 18:00",
-        "18:00 - 19:00",
-        "19:00 - 20:00"
-      ],
-      "comment": "Comment",
-      "commentPlaceholder": "Tell us about your wishes or skin concerns...",
-      "submitButton": "Submit request",
-      "requiredFields": "* Required fields",
-      "callText": "Or call us directly:",
-      "phone": "+48 123 456 789"
-    },
-    "info": {
-      "title": "What to know before your visit",
-      "items": [
-        {
-          "icon": "📋",
-          "title": "Preparation",
-          "desc": "Come without makeup or we'll help you remove it. Avoid harsh products the day before treatment."
-        },
-        {
-          "icon": "⏱️",
-          "title": "Duration",
-          "desc": "Treatments last from 30 to 120 minutes depending on the selected service. Plan your time in advance."
-        },
-        {
-          "icon": "✨",
-          "title": "After treatment",
-          "desc": "We will provide individual care recommendations and schedule your next visit if needed."
-        }
-      ]
-    },
-    "faq": {
-      "subtitle": "Frequently asked questions",
-      "title": "Answers to your questions",
-      "items": [
-        {
-          "q": "Can I cancel or reschedule my booking?",
-          "a": "Yes, but please let us know at least 24 hours in advance. Contact us by phone or WhatsApp."
-        },
-        {
-          "q": "How often should I get treatments?",
-          "a": "It depends on the type of treatment and your skin condition. We will create an individual schedule after consultation."
-        },
-        {
-          "q": "Are there any contraindications?",
-          "a": "Yes, some treatments have contraindications. Be sure to inform us about chronic diseases, pregnancy or allergies."
-        },
-        {
-          "q": "What payment methods do you accept?",
-          "a": "We accept cash, Visa/Mastercard cards and BLIK. Payment is made after the treatment."
-        }
-      ]
-    }
+"BookingPage": {
+  "hero": {
+    "subtitle": "Online booking",
+    "title": "Create your",
+    "titleAccent": "perfect treatment"
   },
+
+  "form": {
+    "title": "Your details",
+    "description": "Please fill out the form below to complete your booking.",
+
+    "fields": {
+      "firstName": {
+        "label": "First name",
+        "placeholder": "Enter your first name"
+      },
+      "lastName": {
+        "label": "Last name",
+        "placeholder": "Enter your last name"
+      },
+      "phone": {
+        "label": "Phone",
+        "placeholder": "+48 000 000 000"
+      },
+      "email": {
+        "label": "Email",
+        "placeholder": "example@mail.com"
+      },
+      "service": {
+        "label": "Service",
+        "placeholder": "Choose a service",
+        "options": [
+          "Facial cleansing",
+          "Massage",
+          "Peeling",
+          "Laser hair removal",
+          "Skin care treatment"
+        ]
+      },
+      "date": {
+        "label": "Date",
+        "placeholder": "Choose a date"
+      },
+      "time": {
+        "label": "Time",
+        "placeholder": "Choose a time",
+        "options": [
+          "10:00",
+          "11:00",
+          "12:00",
+          "13:00",
+          "14:00",
+          "15:00",
+          "16:00",
+          "17:00",
+          "18:00"
+        ]
+      },
+      "comment": {
+        "label": "Comment",
+        "placeholder": "Additional notes or preferences (optional)"
+      }
+    },
+
+    "submit": "Book now",
+    "submitButton": "Confirm booking",
+    "requiredNote": "Fields marked with * are required.",
+    "success": "Your booking was successful!"
+  },
+
+  "contact": {
+    "text": "If you have any questions or prefer to book by phone:",
+    "phone": "+48 000 000 000"
+  },
+
+  "info": {
+    "title": "Why clients choose us",
+    "items": [
+      {
+        "title": "Premium treatments",
+        "text": "We use only certified cosmetics and modern skincare techniques."
+      },
+      {
+        "title": "Personalized approach",
+        "text": "Each treatment is tailored to your skin’s unique needs."
+      },
+      {
+        "title": "Atmosphere of calm",
+        "text": "Our interior and music create a spa‑like experience, not just a procedure."
+      }
+    ]
+  },
+
+  "faq": {
+    "subtitle": "Frequently asked questions",
+    "title": "Everything about booking and treatments",
+    "items": [
+      {
+        "question": "Do I need to pay in advance?",
+        "answer": "No, prepayment is not required. You pay after the treatment at the salon."
+      },
+      {
+        "question": "Can I reschedule or cancel my appointment?",
+        "answer": "Yes, you can reschedule or cancel your appointment up to 24 hours before the procedure."
+      },
+      {
+        "question": "What if I’m late?",
+        "answer": "If you're less than 15 minutes late, we’ll try to keep the full treatment. If later, the duration may be reduced."
+      }
+    ]
+  }
+},
   "ContactPage": {
     "hero": {
       "subtitle": "Contact us",
       "title": "Get in",
       "titleAccent": "touch"
     },
-    "info": {
+    "contactInfo": {
       "items": [
         {
           "icon": "📍",
@@ -306,151 +334,168 @@
         }
       ]
     },
-    "form": {
-      "subtitle": "Write to us",
-      "title": "Have questions?",
-      "description": "Fill out the form and we will contact you shortly",
-      "name": "Name",
-      "namePlaceholder": "Your name",
-      "email": "Email",
-      "emailPlaceholder": "example@mail.com",
-      "phone": "Phone",
-      "phonePlaceholder": "+48 000 000 000",
-      "subject": "Subject",
-      "selectSubject": "-- Select subject --",
-      "subjects": [
-        "Question about services",
-        "Booking an appointment",
-        "Consultation",
-        "Collaboration",
-        "Other"
-      ],
-      "message": "Message",
-      "messagePlaceholder": "Write your message...",
-      "submitButton": "Send message",
-      "requiredFields": "* Required fields"
-    },
-    "location": {
-      "subtitle": "Our location",
-      "title": "Visit our",
-      "titleLine2": "studio",
-      "description": "We are located in the heart of Poznań, in a quiet and cozy place. Convenient access by public transport and parking nearby.",
-      "transport": [
-        {
-          "icon": "🚗",
-          "title": "By car",
-          "desc": "Free parking in front of the building"
-        },
-        {
-          "icon": "🚌",
-          "title": "Public transport",
-          "desc": "'Plac Wolności' stop 3 minutes walk"
-        },
-        {
-          "icon": "🚶",
-          "title": "On foot",
-          "desc": "5 minutes from the main square"
-        }
-      ],
-      "mapButton": "Open in Google Maps"
-    },
-    "hours": {
-      "title": "Opening hours",
-      "weekdays": {
-        "title": "Weekdays",
-        "days": [
-          { "day": "Monday", "hours": "10:00 - 20:00" },
-          { "day": "Tuesday", "hours": "10:00 - 20:00" },
-          { "day": "Wednesday", "hours": "10:00 - 20:00" },
-          { "day": "Thursday", "hours": "10:00 - 20:00" },
-          { "day": "Friday", "hours": "10:00 - 20:00" }
+  
+  "form": {
+    "subtitle": "Contact us",
+    "title": "Have a question?",
+    "description": "Fill out the form and we will get back to you shortly",
+
+    "fields": {
+      "name": { "label": "Name", "placeholder": "Your name" },
+      "email": { "label": "Email", "placeholder": "example@mail.com" },
+      "phone": { "label": "Phone", "placeholder": "+48 000 000 000" },
+      "subject": {
+        "label": "Subject",
+        "placeholder": "-- Select a topic --",
+        "options": [
+          "Service inquiry",
+          "Appointment booking",
+          "Consultation",
+          "Collaboration",
+          "Other"
         ]
       },
-      "weekend": {
-        "title": "Weekend",
-        "days": [
-          { "day": "Saturday", "hours": "11:00 - 18:00" },
-          { "day": "Sunday", "hours": "Closed" }
-        ],
-        "note": "Booking by prior arrangement. Weekend appointments possible upon agreement."
+      "message": {
+        "label": "Message",
+        "placeholder": "Write your message..."
       }
     },
-    "social": {
-      "subtitle": "Follow us",
-      "title": "We're on social media",
-      "description": "Follow our pages to stay updated on news, special offers and useful skin care tips",
-      "platforms": [
-        { "name": "Instagram", "icon": "📷" },
-        { "name": "Facebook", "icon": "📘" },
-        { "name": "WhatsApp", "icon": "💬" }
+
+    "submitButton": "Send message",
+    "requiredFields": "* Required fields",
+    "requiredNote": "* Required fields"
+  },
+
+  "location": {
+    "subtitle": "Our location",
+    "title": "Visit our",
+    "titleLine2": "studio",
+    "description": "We are located in the very center of Poznań, in a quiet and cozy area. Easy access by public transport and parking nearby.",
+    "transport": [
+      { "icon": "🚗", "title": "By car", "desc": "Free parking in front of the building" },
+      { "icon": "🚌", "title": "Public transport", "desc": "‘Plac Wolności’ stop is 3 minutes away" },
+      { "icon": "🚶", "title": "On foot", "desc": "5 minutes from the main square" }
+    ],
+    "mapButton": "Open in Google Maps",
+    "mapLink": "Open map",
+    "mapPlaceholder": "Map will appear here"
+  },
+
+  "hours": {
+    "title": "Opening hours",
+    "weekdays": {
+      "title": "Weekdays",
+      "schedule": [
+        { "day": "Monday", "hours": "10:00 - 20:00" },
+        { "day": "Tuesday", "hours": "10:00 - 20:00" },
+        { "day": "Wednesday", "hours": "10:00 - 20:00" },
+        { "day": "Thursday", "hours": "10:00 - 20:00" },
+        { "day": "Friday", "hours": "10:00 - 20:00" }
       ]
     },
-    "cta": {
-      "title": "Ready to book",
-      "titleAccent": "your treatment",
-      "description": "Contact us in a convenient way and we'll find the perfect time for your visit",
-      "bookButton": "Book online",
-      "callButton": "Call now"
-    }
+    "weekend": {
+      "title": "Weekend",
+      "schedule": [
+        { "day": "Saturday", "hours": "11:00 - 18:00" },
+        { "day": "Sunday", "hours": "Closed" }
+      ],
+      "note": "Visits by prior arrangement. Weekend appointments possible upon agreement."
+    },
+    "note": "Visits by prior arrangement. Weekend appointments possible upon agreement."
   },
+
+  "social": {
+    "subtitle": "Follow us",
+    "title": "We are on social media",
+    "description": "Follow our pages to stay updated on news, special offers, and skincare tips",
+    "platforms": [
+      { "name": "Instagram", "icon": "📷" },
+      { "name": "Facebook", "icon": "📘" },
+      { "name": "WhatsApp", "icon": "💬" }
+    ]
+  },
+
+  "cta": {
+    "title": "Ready to book",
+    "titleLine2": "which package",
+    "titleAccent": "to choose",
+    "description": "Contact us in any convenient way and we will find the perfect time for your visit",
+    "bookingButton": "Book online",
+    "bookButton": "Book online",
+    "callButton": "Call"
+  }
+},
   "GalleryPage": {
-    "hero": {
-      "subtitle": "Our work",
-      "title": "Portfolio",
-      "titleAccent": "LumaSkin",
-      "description": "Results we are proud of"
-    },
-    "emptyState": "No photos uploaded yet",
-    "categories": {
-      "subtitle": "Our treatments",
-      "title": "What we offer",
-      "items": [
-        { "icon": "✨", "name": "Facial cleansing", "count": "12+ works" },
-        { "icon": "🌟", "name": "Peeling", "count": "8+ works" },
-        { "icon": "💎", "name": "Massage", "count": "15+ works" },
-        { "icon": "💉", "name": "Injections", "count": "10+ works" }
-      ]
-    },
-    "reviews": {
-      "subtitle": "Client reviews",
-      "title": "Results speak for themselves",
-      "items": [
-        {
-          "name": "Anna M.",
-          "text": "Incredible results after the cleansing course! My skin is glowing, pores visibly reduced. Huge thanks!"
-        },
-        {
-          "name": "Katarzyna L.",
-          "text": "Facial massage is something else! The oval tightened, swelling disappeared. I feel 10 years younger."
-        }
-      ]
-    },
-    "cta": {
-      "title": "Want the same",
-      "titleAccent": "result",
-      "description": "Book a consultation and we will create a program especially for you",
-      "bookButton": "Book now",
-      "servicesButton": "Our services"
-    }
+  "hero": {
+    "subtitle": "Our work",
+    "title": "Portfolio",
+    "titleAccent": "LumaSkin",
+    "description": "Results we are proud of"
   },
+
+  "gallery": {
+    "emptyMessage": "No photos uploaded yet",
+    "photoLabel": "Photo",
+    "brandName": "LumaSkin"
+  },
+
+  "categories": {
+    "subtitle": "Our treatments",
+    "title": "What we offer",
+    "items": [
+      { "icon": "✨", "name": "Facial cleansing", "count": "12+ works" },
+      { "icon": "🌟", "name": "Peeling", "count": "8+ works" },
+      { "icon": "💎", "name": "Massage", "count": "15+ works" },
+      { "icon": "💉", "name": "Injections", "count": "10+ works" }
+    ]
+  },
+
+  "reviews": {
+    "subtitle": "Client reviews",
+    "title": "Results speak for themselves",
+    "items": [
+      {
+        "name": "Anna M.",
+        "text": "Incredible results after the cleansing course! My skin is glowing, pores visibly reduced. Huge thanks!"
+      },
+      {
+        "name": "Katarzyna L.",
+        "text": "Facial massage is something else! The oval tightened, swelling disappeared. I feel 10 years younger."
+      }
+    ]
+  },
+
+  "cta": {
+    "title": "Want the same",
+    "titleAccent": "result",
+    "description": "Book a consultation and we will create a program especially for you",
+    "bookingButton": "Book now",
+    "servicesButton": "Our services"
+  }
+},
   "LoginPage": {
     "hero": {
-      "title": "Login to your",
+      "title": "Sign in to your",
       "titleAccent": "account"
     },
     "form": {
-      "email": "Email",
-      "emailPlaceholder": "example@mail.com",
-      "password": "Password",
-      "passwordPlaceholder": "••••••••",
+      "email": {
+        "label": "Email",
+        "placeholder": "example@mail.com"
+      },
+      "password": {
+        "label": "Password",
+        "placeholder": "••••••••"
+      },
       "rememberMe": "Remember me",
-      "forgotPassword": "Forgot password?",
-      "loginButton": "Log in",
+      "forgotPassword": "Forgot your password?",
+      "submitButton": "Sign in",
       "or": "or",
       "googleButton": "Sign in with Google",
-      "noAccount": "Don't have an account?",
-      "registerLink": "Register",
-      "description": "Log in to track your bookings and treatment history"
+      "noAccount": "Don’t have an account?",
+      "registerLink": "Create one",
+      "loginNote": "Sign in to track your bookings and treatment history",
+      "description": "Sign in to track your bookings and treatment history"
     },
     "benefits": {
       "title": "Benefits of your account",
@@ -458,21 +503,22 @@
         {
           "icon": "📅",
           "title": "Booking history",
-          "desc": "View all your past and future appointments in one place"
+          "desc": "View all past and upcoming appointments in one place"
         },
         {
           "icon": "🎁",
-          "title": "Bonuses and discounts",
-          "desc": "Collect points and receive exclusive offers"
+          "title": "Rewards & discounts",
+          "desc": "Earn points and receive exclusive offers"
         },
         {
           "icon": "⚡",
-          "title": "Quick booking",
-          "desc": "Book treatments with one click without re-entering your data"
+          "title": "Fast booking",
+          "desc": "Book treatments in one click without re‑entering your details"
         }
       ]
     }
   },
+
   "RegisterPage": {
     "hero": {
       "title": "Create",
@@ -482,14 +528,23 @@
       "description": "Join LumaSkin and get access to exclusive offers"
     },
     "form": {
-      "name": "Full name",
-      "namePlaceholder": "Anna Kowalska",
-      "email": "Email",
-      "emailPlaceholder": "example@mail.com",
-      "password": "Password",
-      "passwordPlaceholder": "••••••••",
-      "passwordHint": "Minimum 8 characters",
-      "confirmPassword": "Confirm password",
+      "name": {
+        "label": "Full name",
+        "placeholder": "Anna Kowalska"
+      },
+      "email": {
+        "label": "Email",
+        "placeholder": "example@mail.com"
+      },
+      "password": {
+        "label": "Password",
+        "placeholder": "••••••••",
+        "hint": "Minimum 8 characters"
+      },
+      "confirmPassword": {
+        "label": "Confirm password",
+        "placeholder": "••••••••"
+      },
       "terms": "I accept the",
       "termsLink": "terms of use",
       "and": "and",
@@ -498,31 +553,22 @@
       "or": "or",
       "googleButton": "Sign up with Google",
       "haveAccount": "Already have an account?",
-      "loginLink": "Log in"
+      "loginLink": "Log in",
+      "passwordsDontMatch": "Passwords do not match",
+      "verifyMessage": "We sent a verification code to",
+      "code": {
+        "label": "Verification code",
+        "placeholder": "Enter 6-digit code"
+      },
+      "verifyButton": "Verify"
     },
     "benefits": {
       "title": "What awaits you after registration",
       "items": [
-        {
-          "icon": "🎉",
-          "title": "Welcome bonus",
-          "desc": "10% discount on your first treatment"
-        },
-        {
-          "icon": "📱",
-          "title": "Personal account",
-          "desc": "Manage bookings online"
-        },
-        {
-          "icon": "💌",
-          "title": "Exclusive offers",
-          "desc": "Special promotions just for you"
-        },
-        {
-          "icon": "🌟",
-          "title": "Loyalty program",
-          "desc": "Collect points for your visits"
-        }
+        { "icon": "🎉", "title": "Welcome bonus", "desc": "10% off your first procedure" },
+        { "icon": "📱", "title": "Personal account", "desc": "Manage your bookings online" },
+        { "icon": "💌", "title": "Exclusive offers", "desc": "Special promotions just for you" },
+        { "icon": "🌟", "title": "Loyalty program", "desc": "Earn points for every visit" }
       ]
     },
     "security": {
@@ -530,135 +576,118 @@
       "description": "We use modern encryption technologies to protect your personal data. Your information will never be shared with third parties without your consent."
     }
   },
-  "ServicesPage": {
-    "hero": {
-      "subtitle": "What we offer",
-      "title": "Our",
-      "titleAccent": "services"
-    }
-  },
   "PackagesPage": {
+  "hero": {
+    "subtitle": "Premium Service Packages",
+    "title": "Our",
+    "titleAccent": "packages",
+    "description": "Save more by choosing treatments in exclusive bundles"
+  },
+
+  "packages": [],
+
+  "empty": {
+    "title": "No packages added yet",
+    "subtitle": "Create your first package to display it on the page",
+    "button": "Add package"
+  },
+
+  "selectButton": "Select package",
+  "validityNote": "* Packages remain valid for a limited period from the date of purchase"
+},
+  "AccountPage": {
     "hero": {
-      "subtitle": "Special offers",
-      "title": "Treatment",
-      "titleAccent": "packages",
-      "description": "Save up to 20% when purchasing a treatment course"
+      "title": "Account",
+      "subtitle": "Your bookings, statistics and settings"
     },
-    "packages": {
-      "start": {
-        "badge": "Beginning of the journey",
-        "title": "Start",
-        "sessions": "3 treatments of your choice",
-        "price": "350",
-        "oldPrice": "400",
-        "savings": "Save 50 PLN",
-        "benefits": [
-          "3 any treatments",
-          "Free consultation",
-          "10% discount on products",
-          "Valid for 3 months"
-        ],
-        "button": "Choose package"
-      },
-      "premium": {
-        "badge": "Popular choice",
-        "title": "Premium",
-        "sessions": "5 treatments of your choice",
-        "price": "550",
-        "oldPrice": "700",
-        "savings": "Save 150 PLN",
-        "benefits": [
-          "5 any treatments",
-          "Free consultation",
-          "15% discount on products",
-          "Personal care plan",
-          "Valid for 6 months"
-        ],
-        "button": "Choose package"
-      },
-      "vip": {
-        "badge": "Maximum care",
-        "title": "VIP",
-        "sessions": "8 treatments of your choice",
-        "price": "850",
-        "oldPrice": "1100",
-        "savings": "Save 250 PLN",
-        "benefits": [
-          "8 any treatments",
-          "Unlimited consultations",
-          "20% discount on products",
-          "VIP support",
-          "Priority booking",
-          "Valid for 9 months"
-        ],
-        "button": "Choose package"
-      },
-      "note": "* Packages are valid for the specified period from the date of purchase",
-      "note2": "** Treatments can be combined at your discretion"
+
+    "profile": {
+      "guest": "Guest",
+      "editButton": "Edit profile"
     },
-    "special": {
-      "subtitle": "Thematic courses",
-      "title": "Special programs",
-      "antiAge": {
-        "title": "Anti-Aging Program",
-        "sessions": "6 treatments",
-        "price": "1200 PLN",
-        "oldPrice": "1450 PLN",
-        "desc": "Comprehensive anti-aging care",
-        "includes": [
-          "2 mesotherapy sessions",
-          "2 facial massage sessions",
-          "2 chemical peels",
-          "Home care kit as a gift"
-        ],
-        "button": "Book the course"
+
+    "stats": {
+      "title": "Statistics",
+      "totalBookings": "Total bookings",
+      "upcoming": "Upcoming bookings",
+      "totalSpent": "Total spent"
+    },
+
+    "quickActions": {
+      "title": "Quick actions",
+      "newBooking": "New booking",
+      "newBookingDesc": "Book the nearest available time",
+      "loyalty": "Loyalty program",
+      "loyaltyDesc": "View your bonuses and rewards"
+    },
+
+    "bookings": {
+      "upcoming": "Upcoming bookings",
+      "history": "Booking history",
+      "empty": "You have no bookings yet",
+      "makeFirst": "Make your first booking",
+
+      "statuses": {
+        "confirmed": "Confirmed",
+        "completed": "Completed",
+        "cancelled": "Cancelled",
+        "rescheduled": "Rescheduled"
       },
-      "problematic": {
-        "title": "Problematic skin",
-        "sessions": "5 treatments",
-        "price": "950 PLN",
-        "oldPrice": "1150 PLN",
-        "desc": "Intensive program for acne-prone skin",
-        "includes": [
-          "3 deep cleansing treatments",
-          "2 almond peels",
-          "Dermatologist consultation",
-          "Home care plan"
-        ],
-        "button": "Book the course"
+
+      "actions": {
+        "reschedule": "Reschedule",
+        "cancel": "Cancel",
+        "bookAgain": "Book again"
       }
     },
-    "benefits": {
-      "title": "Why buy packages",
-      "items": [
-        {
-          "icon": "💰",
-          "title": "Savings",
-          "desc": "Save up to 20% compared to individual visits"
-        },
-        {
-          "icon": "📈",
-          "title": "Results",
-          "desc": "Regular care provides stable and long-term effects"
-        },
-        {
-          "icon": "🎁",
-          "title": "Bonuses",
-          "desc": "Consultations and discounts on professional cosmetics"
-        },
-        {
-          "icon": "⏰",
-          "title": "Flexibility",
-          "desc": "Use treatments at your convenience"
-        }
-      ]
-    },
-    "cta": {
-      "title": "Not sure which package",
-      "titleAccent": "to choose",
-      "description": "Book a free consultation and we'll help you choose the optimal program for your skin",
-      "consultButton": "Free consultation",
-      "callButton": "Call now"
+
+    "admin": {
+      "button": "Go to admin panel"
     }
+  },
+  "ServicesPage": {
+  "hero": {
+    "subtitle": "Professional treatments",
+    "title": "Our",
+    "titleAccent": "services",
+    "description": "Personalized protocols, premium products and modern techniques for healthy, glowing skin"
+  },
+
+  "services": [],
+
+  "empty": {
+    "title": "No services added yet",
+    "subtitle": "Add your first service to display it on the website",
+    "button": "Add service"
+  },
+
+  "list": {
+    "subtitle": "What we offer",
+    "title": "Professional care",
+    "description": "Each treatment is designed to match your skin’s needs and your personal goals"
+  },
+
+  "serviceCard": {
+    "learnMore": "Learn more",
+    "selectButton": "Select",
+    "priceFrom": "from"
+  },
+
+  "cta": {
+    "title": "Ready to choose a treatment",
+    "titleAccent": "for yourself",
+    "description": "Book a consultation and we will create a personalized care plan just for you",
+    "bookButton": "Book now",
+    "servicesButton": "All services"
   }
+},
+"ForgotPasswordPage": {
+  "title": "Password recovery",
+  "description": "Enter your email and we will send you a reset link.",
+  "emailLabel": "Email",
+  "emailPlaceholder": "Enter your email",
+  "submit": "Send reset link",
+  "sentTitle": "Email sent",
+  "sentDescription": "If this email exists, we have sent a reset link."
+}
 }

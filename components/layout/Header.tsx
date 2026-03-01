@@ -4,7 +4,6 @@ import { useState, useEffect, useRef } from "react";
 import { usePathname, useRouter } from "next/navigation";
 import { useSession, signOut } from "next-auth/react";
 import { useLocale, useTranslations } from "next-intl";
-import {routing} from '@/src/i18n/routing';
 import Link from "next/link";
 
 export default function Header() {
@@ -12,6 +11,8 @@ export default function Header() {
 
   const [open, setOpen] = useState(false);
   const [langOpen, setLangOpen] = useState(false);
+  const [mobileLangOpen, setMobileLangOpen] = useState(false);
+  const [profileOpen, setProfileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
   const router = useRouter();
@@ -22,6 +23,7 @@ export default function Header() {
 
   const lastYRef = useRef(0);
   const langRef = useRef<HTMLDivElement>(null);
+  const profileRef = useRef<HTMLDivElement>(null);
 
   const languages = [
     { code: "ru", name: "Русский", flag: "🇷🇺" },
@@ -37,10 +39,10 @@ export default function Header() {
     segments[1] = newLocale;
     const newPath = segments.join("/");
     
-    // Используем replace вместо push для мгновенной смены языка
     router.replace(newPath);
     setLangOpen(false);
-    setOpen(false); // Закрываем мобильное меню при смене языка
+    setMobileLangOpen(false);
+    setOpen(false);
   };
 
   const links = [
@@ -56,6 +58,9 @@ export default function Header() {
     const handleClickOutside = (e: MouseEvent) => {
       if (langRef.current && !langRef.current.contains(e.target as Node)) {
         setLangOpen(false);
+      }
+      if (profileRef.current && !profileRef.current.contains(e.target as Node)) {
+        setProfileOpen(false);
       }
     };
 
@@ -109,7 +114,7 @@ export default function Header() {
         `}
       >
         <div className="container mx-auto px-6 flex items-center justify-between">
-          <div className="relative group">
+          <Link href={`/${locale}`} className="relative group">
             <img
               src="/logo/logo.jpg"
               alt="Logo"
@@ -121,7 +126,7 @@ export default function Header() {
                 hover:border-4 hover:scale-105
               `}
             />
-          </div>
+          </Link>
 
           {/* Desktop menu */}
           <nav className="hidden md:flex gap-10 text-graphite font-sans">
@@ -200,6 +205,7 @@ export default function Header() {
               )}
             </div>
 
+            {/* Auth */}
             {!session ? (
               <Link
                 href={`/${locale}/login`}
@@ -208,12 +214,70 @@ export default function Header() {
                 {t("login")}
               </Link>
             ) : (
-              <button
-                onClick={() => signOut()}
-                className="px-4 py-2 border border-gold text-gold rounded-lg hover:bg-gold hover:text-milk transition"
-              >
-                {t("logout")}
-              </button>
+              <div className="relative" ref={profileRef}>
+                <button
+                  onClick={() => setProfileOpen(!profileOpen)}
+                  className="flex items-center gap-2 px-4 py-2 border border-gold/40 rounded-lg hover:border-gold hover:bg-gold/5 transition-all duration-300"
+                >
+                  <div className="w-8 h-8 bg-linear-to-br from-pink-400 to-purple-500 rounded-full flex items-center justify-center text-white text-sm font-semibold">
+                    {session.user?.name?.charAt(0).toUpperCase() || session.user?.email?.charAt(0).toUpperCase()}
+                  </div>
+                  <span className="text-sm font-medium max-w-30 truncate">
+                    {session.user?.name || session.user?.email?.split('@')[0]}
+                  </span>
+                </button>
+
+                {profileOpen && (
+                  <div className="absolute right-0 mt-2 w-56 bg-milk border border-gold/30 rounded-xl shadow-xl overflow-hidden animate-fadeIn z-50">
+                    <div className="px-4 py-3 border-b border-gold/20">
+                      <p className="text-sm font-medium text-graphite truncate">
+                        {session.user?.email}
+                      </p>
+                      <p className="text-xs text-graphite/60 mt-1">
+                        {session.user?.role === 'admin' ? t("admin") : t("user")}
+                      </p>
+                    </div>
+                    
+                    <Link
+                      href={`/${locale}/account`}
+                      onClick={() => setProfileOpen(false)}
+                      className="flex items-center gap-3 px-4 py-3 text-graphite hover:bg-gold/5 transition-all duration-200"
+                    >
+                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                      </svg>
+                      <span className="text-sm">{t("account") || "Мой аккаунт"}</span>
+                    </Link>
+
+                    {session.user?.role === 'admin' && (
+                      <Link
+                        href={`/admin`}
+                        onClick={() => setProfileOpen(false)}
+                        className="flex items-center gap-3 px-4 py-3 text-graphite hover:bg-gold/5 transition-all duration-200"
+                      >
+                        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                        </svg>
+                        <span className="text-sm">{t("adminPanel") || "Админ панель"}</span>
+                      </Link>
+                    )}
+
+                    <button
+                      onClick={() => {
+                        signOut();
+                        setProfileOpen(false);
+                      }}
+                      className="flex items-center gap-3 w-full px-4 py-3 text-left text-red-600 hover:bg-red-50 transition-all duration-200 border-t border-gold/20"
+                    >
+                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+                      </svg>
+                      <span className="text-sm">{t("logout")}</span>
+                    </button>
+                  </div>
+                )}
+              </div>
             )}
           </div>
 
@@ -263,7 +327,7 @@ export default function Header() {
         ></div>
       )}
 
-      {/* Mobile menu */}
+      {/* Mobile menu - NOW SCROLLABLE */}
       <div
         className={`
           fixed top-0 right-0 h-full w-80 z-50
@@ -272,106 +336,161 @@ export default function Header() {
           border-l border-gold/20
           ${open ? "translate-x-0" : "translate-x-full"}
           md:hidden
+          flex flex-col
         `}
       >
         <div className="absolute top-0 left-0 w-1 h-full bg-gold"></div>
 
-        <nav className="flex flex-col gap-2 p-8 mt-24">
-          {links.map((link, index) => {
-            const active = pathname === link.href;
-
-            return (
+        {/* Scrollable Content Container */}
+        <div className="flex-1 overflow-y-auto overflow-x-hidden">
+          {/* Mobile Profile Section */}
+          {session && (
+            <div className="px-8 pt-8 pb-4 border-b border-gold/20">
+              <div className="flex items-center gap-3 mb-3">
+                <div className="w-12 h-12 bg-linear-to-br from-pink-400 to-purple-500 rounded-full flex items-center justify-center text-white text-lg font-semibold">
+                  {session.user?.name?.charAt(0).toUpperCase() || session.user?.email?.charAt(0).toUpperCase()}
+                </div>
+                <div className="flex-1">
+                  <p className="font-medium text-graphite truncate">
+                    {session.user?.name || session.user?.email?.split('@')[0]}
+                  </p>
+                  <p className="text-xs text-graphite/60">
+                    {session.user?.role === 'admin' ? t("admin") : t("user")}
+                  </p>
+                </div>
+              </div>
               <Link
-                key={link.href}
-                href={link.href}
-                className={`
-                  relative px-6 py-4 rounded-xl transition-all duration-300 group overflow-hidden
-                  ${
-                    active
-                      ? "bg-gold/20 text-gold shadow-lg"
-                      : "text-graphite/80 hover:text-gold hover:bg-gold/5"
-                  }
-                `}
-                style={{
-                  animationDelay: `${index * 50}ms`,
-                  animation: open ? "slideInRight 0.5s ease-out forwards" : "none",
-                }}
+                href={`/${locale}/account`}
+                onClick={() => setOpen(false)}
+                className="flex items-center justify-center gap-2 w-full py-2 px-4 border border-gold/40 rounded-lg text-sm text-gold hover:bg-gold/10 transition"
               >
-                <span className="relative text-base font-medium tracking-wide uppercase">
-                  {link.label}
-                </span>
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                </svg>
+                {t("account") || "Мой аккаунт"}
               </Link>
-            );
-          })}
-        </nav>
+            </div>
+          )}
 
-        {/* Mobile Language Switcher - Улучшенная версия */}
-        <div className="px-8 mb-6">
-          <h3 className="text-xs uppercase tracking-wider text-graphite/60 mb-3 font-medium">
-            {t("language") || "Language"}
-          </h3>
-          <div className="flex flex-col gap-2">
-            {languages.map((lang) => (
+          <nav className="flex flex-col gap-2 p-8">
+            {links.map((link, index) => {
+              const active = pathname === link.href;
+
+              return (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className={`
+                    relative px-6 py-4 rounded-xl transition-all duration-300 group overflow-hidden
+                    ${
+                      active
+                        ? "bg-gold/20 text-gold shadow-lg"
+                        : "text-graphite/80 hover:text-gold hover:bg-gold/5"
+                    }
+                  `}
+                  style={{
+                    animationDelay: `${index * 50}ms`,
+                    animation: open ? "slideInRight 0.5s ease-out forwards" : "none",
+                  }}
+                >
+                  <span className="relative text-base font-medium tracking-wide uppercase">
+                    {link.label}
+                  </span>
+                </Link>
+              );
+            })}
+          </nav>
+
+          {/* Mobile Language Dropdown */}
+          <div className="px-8 mb-6">
+            <h3 className="text-xs uppercase tracking-wider text-graphite/60 mb-3 font-medium">
+              {t("language") || "Language"}
+            </h3>
+            <div className="relative">
               <button
-                key={lang.code}
-                onClick={() => switchLocale(lang.code)}
+                onClick={() => setMobileLangOpen(!mobileLangOpen)}
                 className={`
-                  flex items-center gap-3 p-4 rounded-xl
-                  transition-all duration-300
+                  w-full flex items-center justify-between gap-3 p-4 rounded-xl
+                  border-2 transition-all duration-300
                   ${
-                    lang.code === locale
-                      ? "bg-gold/20 border-2 border-gold shadow-lg shadow-gold/20"
-                      : "bg-milk border border-gold/20 hover:bg-gold/5 hover:border-gold/40"
+                    mobileLangOpen
+                      ? "bg-gold/10 border-gold shadow-lg shadow-gold/20"
+                      : "bg-milk border-gold/30 hover:border-gold/50"
                   }
                 `}
               >
-                <span className="text-2xl font-emoji">{lang.flag}</span>
-                <span className={`
-                  text-sm font-medium flex-1 text-left
-                  ${lang.code === locale ? "text-gold" : "text-graphite"}
-                `}>
-                  {lang.name}
-                </span>
-                {lang.code === locale && (
-                  <svg 
-                    className="w-5 h-5 text-gold" 
-                    fill="none" 
-                    viewBox="0 0 24 24" 
-                    stroke="currentColor"
-                  >
-                    <path 
-                      strokeLinecap="round" 
-                      strokeLinejoin="round" 
-                      strokeWidth={2} 
-                      d="M5 13l4 4L19 7" 
-                    />
-                  </svg>
-                )}
+                <div className="flex items-center gap-3">
+                  <span className="text-2xl font-emoji">{currentLang?.flag}</span>
+                  <span className="text-sm font-medium text-graphite">
+                    {currentLang?.name}
+                  </span>
+                </div>
+                <svg
+                  className={`w-5 h-5 text-gold transition-transform duration-300 ${
+                    mobileLangOpen ? "rotate-180" : ""
+                  }`}
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M19 9l-7 7-7-7"
+                  />
+                </svg>
               </button>
-            ))}
+
+              {mobileLangOpen && (
+                <div className="mt-2 bg-milk border-2 border-gold/30 rounded-xl shadow-xl overflow-hidden animate-fadeIn">
+                  {languages
+                    .filter((lang) => lang.code !== locale)
+                    .map((lang) => (
+                      <button
+                        key={lang.code}
+                        onClick={() => switchLocale(lang.code)}
+                        className="w-full flex items-center gap-3 p-4 text-left hover:bg-gold/5 text-graphite transition-all duration-200 border-b border-gold/10 last:border-b-0"
+                      >
+                        <span className="text-2xl font-emoji">{lang.flag}</span>
+                        <span className="text-sm font-medium">{lang.name}</span>
+                      </button>
+                    ))}
+                </div>
+              )}
+            </div>
+          </div>
+
+          {/* Auth Button */}
+          <div className="px-8 mb-8">
+            {!session ? (
+              <Link
+                href={`/${locale}/login`}
+                className="block w-full px-4 py-3 border border-gold text-gold rounded-lg text-center hover:bg-gold hover:text-milk transition"
+              >
+                {t("login")}
+              </Link>
+            ) : (
+              <button
+                onClick={() => {
+                  signOut();
+                  setOpen(false);
+                }}
+                className="flex items-center justify-center gap-2 w-full px-4 py-3 border border-red-500/40 text-red-600 rounded-lg hover:bg-red-50 transition"
+              >
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+                </svg>
+                {t("logout")}
+              </button>
+            )}
           </div>
         </div>
 
-        {/* Auth Button */}
-        <div className="px-8 mb-6">
-          {!session ? (
-            <Link
-              href={`/${locale}/login`}
-              className="block w-full px-4 py-3 border border-gold text-gold rounded-lg text-center hover:bg-gold hover:text-milk transition"
-            >
-              {t("login")}
-            </Link>
-          ) : (
-            <button
-              onClick={() => signOut()}
-              className="block w-full px-4 py-3 border border-gold text-gold rounded-lg text-center hover:bg-gold hover:text-milk transition"
-            >
-              {t("logout")}
-            </button>
-          )}
+        {/* Bottom decorative line - Fixed at bottom */}
+        <div className="px-8 py-4 border-t border-gold/30">
+          <div className="h-px bg-gold/30"></div>
         </div>
-
-        <div className="absolute bottom-8 left-8 right-8 h-px bg-gold/30"></div>
       </div>
 
       <style jsx>{`
@@ -397,6 +516,24 @@ export default function Header() {
 
         .animate-fadeIn {
           animation: fadeIn 0.3s ease-out;
+        }
+
+        /* Custom scrollbar for mobile menu */
+        .overflow-y-auto::-webkit-scrollbar {
+          width: 6px;
+        }
+
+        .overflow-y-auto::-webkit-scrollbar-track {
+          background: transparent;
+        }
+
+        .overflow-y-auto::-webkit-scrollbar-thumb {
+          background: rgba(212, 175, 55, 0.3);
+          border-radius: 3px;
+        }
+
+        .overflow-y-auto::-webkit-scrollbar-thumb:hover {
+          background: rgba(212, 175, 55, 0.5);
         }
       `}</style>
     </>

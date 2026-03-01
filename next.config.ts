@@ -4,7 +4,8 @@ import type { NextConfig } from "next";
 const withNextIntl = createNextIntlPlugin();
 
 const nextConfig: NextConfig = {
-  /* твои настройки, если появятся */
+  // Здесь НЕТ turbo, потому что NextConfig его не поддерживает
+  experimental: {}
 };
 
 export default withNextIntl(nextConfig);
