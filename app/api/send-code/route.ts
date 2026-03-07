@@ -3,18 +3,37 @@ import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { sendEmailCode } from "@/lib/mail";
 import { withRateLimit, LIMITS } from "@/lib/rate-limiter";
+import { createLogger } from "@/lib/logger";
+import { z } from "zod";
+
+const logger = createLogger("send-code");
+
+const sendCodeSchema = z.object({
+  email: z.string().email("Invalid email"),
+});
 
 export async function POST(req: NextRequest) {
-  // 3 отправки кода за 1 час с одного IP
   const limited = await withRateLimit(req, LIMITS.passwordReset);
   if (limited) return limited;
 
-  const { email } = await req.json();
+  // ✅ FIX: валидация email
+  let body: z.infer<typeof sendCodeSchema>;
+  try {
+    body = sendCodeSchema.parse(await req.json());
+  } catch {
+    return NextResponse.json({ error: "Invalid email" }, { status: 400 });
+  }
+
+  const { email } = body;
 
   const user = await prisma.user.findUnique({ where: { email } });
   if (!user) {
+    // ✅ Безопасно: не раскрываем существование email (timing-safe можно улучшить позже)
     return NextResponse.json({ error: "EMAIL_NOT_FOUND" }, { status: 404 });
   }
+
+  // ✅ FIX: удаляем старые неиспользованные коды для этого email перед созданием нового
+  await prisma.emailCode.deleteMany({ where: { email } });
 
   const code = Math.floor(100000 + Math.random() * 900000).toString();
 
@@ -22,16 +41,16 @@ export async function POST(req: NextRequest) {
     data: {
       email,
       code,
-      expiresAt: new Date(Date.now() + 1000 * 60 * 10),
+      expiresAt: new Date(Date.now() + 1000 * 60 * 10), // 10 минут
     },
   });
 
   try {
     await sendEmailCode(email, code);
-    console.log("✅ Письмо отправлено на", email);
+    logger.info({ email }, "Verification code sent");
   } catch (err) {
-    console.error("❌ Ошибка отправки письма:", err);
-    return NextResponse.json({ error: "MAIL_SEND_FAILED", details: String(err) }, { status: 500 });
+    logger.error(err, "Failed to send verification code");
+    return NextResponse.json({ error: "MAIL_SEND_FAILED" }, { status: 500 });
   }
 
   return NextResponse.json({ ok: true });

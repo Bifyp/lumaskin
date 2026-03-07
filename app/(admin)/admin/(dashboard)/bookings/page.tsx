@@ -1,3 +1,4 @@
+//app/(admin)/admin/(dashboard)/bookings/page.tsx
 'use client'
 
 import { useState, useEffect, useCallback, useRef } from 'react'

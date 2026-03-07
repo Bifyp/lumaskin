@@ -1,3 +1,4 @@
+//app/(admin)/admin/layout.tsx
 import Link from "next/link";
 import { ReactNode } from "react";
 import { Separator } from "@/components/ui/separator";

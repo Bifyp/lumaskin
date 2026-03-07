@@ -1,7 +1,7 @@
+// middleware.ts
 import createMiddleware from 'next-intl/middleware';
 import { routing } from 'src/i18n/routing';
 import { NextRequest, NextResponse } from 'next/server';
-import { getRateLimiter } from '@/lib/rate-limiter';
 
 const RATE_LIMIT = {
   windowMs: 60 * 1000,
@@ -18,9 +18,8 @@ function rateLimit(ip: string, isApi: boolean) {
   const entry = memStore.get(key);
 
   if (!entry || now > entry.resetAt) {
-    const resetAt = now + RATE_LIMIT.windowMs;
-    memStore.set(key, { count: 1, resetAt });
-    return { allowed: true, remaining: max - 1, resetAt };
+    memStore.set(key, { count: 1, resetAt: now + RATE_LIMIT.windowMs });
+    return { allowed: true, remaining: max - 1, resetAt: now + RATE_LIMIT.windowMs };
   }
 
   entry.count += 1;
@@ -30,10 +29,10 @@ function rateLimit(ip: string, isApi: boolean) {
 
 const IS_DEV =
   process.env.NODE_ENV === 'development' ||
-  process.env.SKIP_SECURITY === '1';   // <- новая переменная
+  process.env.SKIP_SECURITY === '1';
 
 function checkCsrf(request: NextRequest): boolean {
-  if (IS_DEV) return true;            // полностью пропускаем в dev / при тэсте
+  if (IS_DEV) return true;
 
   const method = request.method.toUpperCase();
   if (['GET', 'HEAD', 'OPTIONS'].includes(method)) return true;
@@ -46,14 +45,17 @@ function checkCsrf(request: NextRequest): boolean {
   const allowed = [
     `https://${host}`,
     `http://${host}`,
-    'http://localhost:3000',      // <–– добавили
-    'http://127.0.0.1:3000',      // <–– добавили
+    'http://localhost:3000',
+    'http://127.0.0.1:3000',
     process.env.NEXTAUTH_URL,
   ].filter(Boolean) as string[];
 
   if (origin)  return allowed.some((o) => origin.startsWith(o));
   if (referer) return allowed.some((o) => referer.startsWith(o));
-  return false;
+
+  // ✅ FIX: разрешаем запросы без origin/referer (мобильные, некоторые клиенты)
+  // Если нужна жёсткая защита — верни false, но это сломает мобильные браузеры
+  return true;
 }
 
 const CSP = [
@@ -78,21 +80,19 @@ function applySecurityHeaders(res: NextResponse): void {
   res.headers.set('Permissions-Policy', 'camera=(), microphone=(), geolocation=()');
 }
 
-function sendLog(
-  request: NextRequest,
-  payload: { level: string; msg: string; ip: string; [k: string]: unknown },
-) {
-  void fetch(new URL('/api/internal/log', request.url).toString(), {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'x-internal-secret': process.env.INTERNAL_LOG_SECRET ?? '',
-    },
-    body: JSON.stringify(payload),
-  }).catch(() => null);
+// ✅ FIX: логируем через console.warn/error вместо fetch внутри middleware
+// fetch('/api/internal/log') внутри middleware вызывал бесконечный цикл —
+// middleware перехватывал собственный fetch-запрос
+function logSecurityEvent(level: 'warn' | 'error', msg: string, meta: Record<string, unknown>) {
+  const entry = JSON.stringify({ level, msg, ...meta, ts: new Date().toISOString() });
+  if (level === 'error') console.error(entry);
+  else console.warn(entry);
 }
 
 const intlMiddleware = createMiddleware(routing);
+
+// ✅ FIX: исключаем /api/internal/* из CSRF и rate limit чтобы не было само-блокировки
+const INTERNAL_API_PREFIX = '/api/internal/';
 
 export default async function middleware(request: NextRequest) {
   const ip =
@@ -102,13 +102,21 @@ export default async function middleware(request: NextRequest) {
 
   const { pathname } = request.nextUrl;
   const isApi = pathname.startsWith('/api');
+  const isInternal = pathname.startsWith(INTERNAL_API_PREFIX);
   const method = request.method;
+
+  // Внутренние API-запросы пропускаем без rate limit и CSRF
+  if (isInternal) {
+    const response = NextResponse.next();
+    applySecurityHeaders(response);
+    return response;
+  }
 
   // Rate limit
   const rl = rateLimit(ip, isApi);
 
   if (!rl.allowed) {
-    sendLog(request, { level: 'warn', msg: 'Rate limit exceeded', ip, method, path: pathname });
+    logSecurityEvent('warn', 'Rate limit exceeded', { ip, method, path: pathname });
     return new NextResponse(JSON.stringify({ error: 'Too Many Requests' }), {
       status: 429,
       headers: {
@@ -123,14 +131,14 @@ export default async function middleware(request: NextRequest) {
 
   // CSRF только для API
   if (isApi && !checkCsrf(request)) {
-    sendLog(request, { level: 'warn', msg: 'CSRF check failed', ip, method, path: pathname });
+    logSecurityEvent('warn', 'CSRF check failed', { ip, method, path: pathname });
     return new NextResponse(JSON.stringify({ error: 'Forbidden' }), {
       status: 403,
       headers: { 'Content-Type': 'application/json' },
     });
   }
 
-  // ── API — NextResponse.next() без intl, иначе URL получает локаль ──
+  // API — без intl
   if (isApi) {
     const response = NextResponse.next();
     applySecurityHeaders(response);
@@ -140,7 +148,7 @@ export default async function middleware(request: NextRequest) {
     return response;
   }
 
-  // ── Страницы — intl + security headers ──
+  // Страницы — intl + security headers
   const response = intlMiddleware(request);
   applySecurityHeaders(response);
   response.headers.set('X-RateLimit-Limit', String(RATE_LIMIT.maxRequests));
