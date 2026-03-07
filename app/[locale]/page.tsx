@@ -1,9 +1,14 @@
 'use client';
 import { useTranslations } from 'next-intl';
+import { useLocale } from 'next-intl';
 import LazyImage from "../../components/LazyImage";
+import { usePagePhoto } from '../../components/hooks/usePagePhoto';
 
 export default function HomePage() {
   const t = useTranslations('HomePage');
+  const locale = useLocale();
+
+  const { url: masterUrl, alt: masterAlt } = usePagePhoto('home', '/home/master.jpg');
 
   return (
     <div className="overflow-hidden">
@@ -11,7 +16,6 @@ export default function HomePage() {
       {/* HERO */}
       <section className="relative w-full min-h-[85vh] flex items-center justify-center fade-in">
         <div className="container text-center relative z-10 px-6">
-          {/* Маленький прелоадер */}
           <div className="inline-block mb-8">
             <span className="text-gold/60 uppercase tracking-[0.3em] text-sm font-sans">
               {t('hero.subtitle')}
@@ -30,7 +34,7 @@ export default function HomePage() {
 
           <div className="flex gap-6 justify-center items-center flex-wrap">
             <a
-              href="/booking"
+              href={`/${locale}/booking`}
               className="group relative px-10 py-4 bg-gold text-white font-sans uppercase tracking-widest text-sm rounded-sm overflow-hidden transition-all duration-300 hover:shadow-2xl hover:shadow-gold/30 hover:-translate-y-1"
             >
               <span className="relative z-10">{t('hero.bookButton')}</span>
@@ -38,7 +42,7 @@ export default function HomePage() {
             </a>
 
             <a
-              href="/services"
+              href={`/${locale}/services`}
               className="px-10 py-4 border-2 border-gold text-gold font-sans uppercase tracking-widest text-sm rounded-sm transition-all duration-300 hover:bg-gold hover:text-white hover:-translate-y-1"
             >
               {t('hero.servicesButton')}
@@ -60,36 +64,21 @@ export default function HomePage() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {[
-              {
-                title: t('services.facial.title'),
-                desc: t('services.facial.description'),
-                icon: t('services.facial.icon')
-              },
-              {
-                title: t('services.peeling.title'),
-                desc: t('services.peeling.description'),
-                icon: t('services.peeling.icon')
-              },
-              {
-                title: t('services.massage.title'),
-                desc: t('services.massage.description'),
-                icon: t('services.massage.icon')
-              }
+              { title: t('services.facial.title'), desc: t('services.facial.description'), icon: t('services.facial.icon') },
+              { title: t('services.peeling.title'), desc: t('services.peeling.description'), icon: t('services.peeling.icon') },
+              { title: t('services.massage.title'), desc: t('services.massage.description'), icon: t('services.massage.icon') },
             ].map((service, idx) => (
-              <div 
+              <div
                 key={idx}
                 className="group relative p-8 bg-white border border-gold/20 transition-all duration-500 hover:border-gold hover:shadow-xl hover:-translate-y-2"
               >
-                {/* Декоративный уголок */}
                 <div className="absolute top-0 left-0 w-16 h-16 border-l-2 border-t-2 border-gold/40 transition-all duration-300 group-hover:w-20 group-hover:h-20 group-hover:border-gold"></div>
-                
                 <div className="relative z-10">
                   <div className="text-4xl mb-6">{service.icon}</div>
                   <h3 className="text-2xl font-serif mb-4 text-graphite">{service.title}</h3>
                   <p className="text-graphite/70 mb-6 leading-relaxed">{service.desc}</p>
-                  
-                  <a 
-                    href="/services" 
+                  <a
+                    href={`/${locale}/services`}
                     className="inline-flex items-center gap-2 text-gold font-sans text-sm uppercase tracking-wider group-hover:gap-4 transition-all duration-300"
                   >
                     {t('services.learnMore')}
@@ -104,7 +93,6 @@ export default function HomePage() {
 
       {/* О МАСТЕРЕ */}
       <section className="py-32 fade-left relative">
-        {/* Декоративный фон */}
         <div className="absolute right-0 top-1/2 -translate-y-1/2 w-1/3 h-2/3 bg-gold/5 -z-10"></div>
         
         <div className="container px-6">
@@ -123,9 +111,8 @@ export default function HomePage() {
               <p className="text-graphite/70 font-sans mb-8 leading-relaxed">
                 {t('about.paragraph2')}
               </p>
-              
-              <a 
-                href="/about" 
+              <a
+                href={`/${locale}/about`}
                 className="inline-flex items-center gap-3 text-gold font-sans uppercase tracking-wider border-b-2 border-gold/30 pb-2 hover:border-gold transition-all duration-300"
               >
                 {t('about.learnMore')}
@@ -136,8 +123,8 @@ export default function HomePage() {
             <div className="order-1 md:order-2 relative">
               <div className="absolute -top-6 -left-6 w-full h-full border-2 border-gold/20 -z-10"></div>
               <LazyImage
-                src="/home/master.jpg"
-                alt={t('about.imageAlt')}
+                src={masterUrl}
+                alt={masterAlt || t('about.imageAlt')}
                 className="w-full h-125 object-cover shadow-2xl"
               />
             </div>
@@ -158,13 +145,13 @@ export default function HomePage() {
               { number: t('stats.experience.number'), label: t('stats.experience.label') },
               { number: t('stats.clients.number'), label: t('stats.clients.label') },
               { number: t('stats.procedures.number'), label: t('stats.procedures.label') },
-              { number: t('stats.premium.number'), label: t('stats.premium.label') }
+              { number: t('stats.premium.number'), label: t('stats.premium.label') },
             ].map((stat, idx) => (
               <div key={idx} className="text-center group">
                 <div className="text-5xl font-serif text-gold mb-4 group-hover:scale-110 transition-transform duration-300">
                   {stat.number}
                 </div>
-                <div className="text-sm uppercase tracking-widest text-white/70">
+                <div className="text-sm uppercase tracking-widest text-black/70">
                   {stat.label}
                 </div>
               </div>
@@ -191,15 +178,15 @@ export default function HomePage() {
           </p>
 
           <div className="flex gap-6 justify-center items-center flex-wrap">
-            <a 
-              href="/contact" 
+            <a
+              href={`/${locale}/contact`}
               className="px-10 py-4 bg-gold text-white font-sans uppercase tracking-widest text-sm rounded-sm transition-all duration-300 hover:bg-graphite hover:shadow-2xl hover:-translate-y-1"
             >
               {t('contact.contactButton')}
             </a>
 
-            <a 
-              href="tel:+48123456789" 
+            <a
+              href="tel:+48123456789"
               className="px-10 py-4 border-2 border-gold text-gold font-sans uppercase tracking-widest text-sm rounded-sm transition-all duration-300 hover:bg-gold hover:text-white hover:-translate-y-1"
             >
               {t('contact.callButton')}

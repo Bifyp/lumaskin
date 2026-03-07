@@ -1,10 +1,15 @@
 import NextAuth from "next-auth";
 import Credentials from "next-auth/providers/credentials";
 import { prisma } from "@/lib/prisma";
-import { compare } from "bcryptjs";
+import { compare, hash } from "bcryptjs";
+import { loginSchema } from "@/lib/validations";
+import { createLogger } from "@/lib/logger";
 
-// ВАЖНО: auth импортируется из созданной конфигурации, а НЕ из "next-auth"
+const logger = createLogger('nextauth')
+
 export const { handlers, auth, signIn, signOut } = NextAuth({
+  trustHost: true,
+  
   providers: [
     Credentials({
       credentials: {
@@ -12,25 +17,38 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
         password: { label: "Password", type: "password" }
       },
       authorize: async (credentials) => {
-        const email = credentials?.email as string | undefined;
-        const password = credentials?.password as string | undefined;
+        try {
+          const validated = loginSchema.parse({
+            email: credentials?.email,
+            password: credentials?.password
+          })
 
-        if (!email || !password) return null;
+          const user = await prisma.user.findUnique({
+            where: { email: validated.email }
+          })
 
-        const user = await prisma.user.findUnique({
-          where: { email: email }
-        });
+          if (!user || !user.password) {
+            logger.warn({ email: validated.email }, 'User not found or no password')
+            return null
+          }
 
-        if (!user || !user.password) return null;
+          const isValid = await compare(validated.password, user.password)
+          if (!isValid) {
+            logger.warn({ email: validated.email }, 'Invalid password')
+            return null
+          }
 
-        const isValid = await compare(password, user.password);
-        if (!isValid) return null;
-
-        return {
-          id: user.id,
-          email: user.email,
-          role: user.role
-        };
+          logger.info({ userId: user.id }, 'User authenticated')
+          return {
+            id: user.id,
+            email: user.email,
+            name: user.name,
+            role: user.role
+          }
+        } catch (error) {
+          logger.error(error, 'Auth error')
+          return null
+        }
       }
     })
   ],
@@ -39,21 +57,26 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
     async jwt({ token, user }) {
       if (user) {
         token.role = (user as any).role;
+        token.id = user.id;
       }
       return token;
     },
 
     async session({ session, token }) {
       if (session.user) {
-        session.user.id = token.sub!;
+        session.user.id = token.id as string;
         (session.user as any).role = token.role;
       }
       return session;
     }
+  },
+
+  pages: {
+    signIn: '/login',
+    error: '/login',
   }
 });
 
-// 🔥 ЭТО ГЛАВНОЕ — функция для layout
 export async function getCurrentSession() {
   const session = await auth();
 
@@ -69,4 +92,8 @@ export async function getCurrentSession() {
       role: (session.user as any).role ?? "user"
     }
   };
+}
+
+export async function hashPassword(password: string): Promise<string> {
+  return hash(password, 10)
 }

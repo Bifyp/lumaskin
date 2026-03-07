@@ -1,0 +1,7 @@
+<!-- filepath: c:\Users\Bohdan\Desktop\12131231\public\robots.txt -->
+User-agent: *
+Allow: /
+Disallow: /admin
+Disallow: /api
+
+Sitemap: https://yourdomain.com/sitemap.xml

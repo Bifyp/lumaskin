@@ -1,0 +1,311 @@
+## Error Type
+Recoverable Error
+
+## Error Message
+Hydration failed because the server rendered text didn't match the client. As a result this tree will be regenerated on the client. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <InnerScrollAndFocusHandler segmentPath={[...]} focusAndScrollRef={{apply:false, ...}}>
+      <ErrorBoundary errorComponent={undefined} errorStyles={undefined} errorScripts={undefined}>
+        <LoadingBoundary name="preview/" loading={null}>
+          <HTTPAccessFallbackBoundary notFound={undefined} forbidden={undefined} unauthorized={undefined}>
+            <RedirectBoundary>
+              <RedirectErrorBoundary router={{...}}>
+                <InnerLayoutRouter url="/admin/tra..." tree={[...]} params={{}} cacheNode={{rsc:<Fragment>, ...}} ...>
+                  <SegmentViewNode type="page" pagePath="(admin)/ad...">
+                    <SegmentTrieNode>
+                    <TranslationsPreviewIndex>
+                      <div className="space-y-8 p-6">
+                        <div>
+                        <div className="grid grid-...">
+                          <LinkComponent>
+                            <LinkComponent href="/admin/tra..." className="group flex...">
+                              <a className="group flex..." ref={function} onClick={function onClick} ...>
+                                <span className="text-3xl">
++                                 🏠
+-                                 
+                                ...
+                          ...
+                        ...
+                  ...
+                ...
+      ...
+
+
+
+    at span (<anonymous>:null:null)
+    at <anonymous> (app\(admin)\admin\(dashboard)\translations\preview\page.tsx:33:13)
+    at Array.map (<anonymous>:1:18)
+    at TranslationsPreviewIndex (app\(admin)\admin\(dashboard)\translations\preview\page.tsx:27:16)
+
+## Code Frame
+  31 |             className="group flex items-start gap-4 rounded-xl border border-gray-200 bg-white p-5 shadow-sm transition-all hover:border-indigo-400 hover:shadow-md"
+  32 |           >
+> 33 |             <span className="text-3xl">{page.icon}</span>
+     |             ^
+  34 |             <div>
+  35 |               <p className="font-semibold text-gray-800 group-hover:text-indigo-600 transition-colors">
+  36 |                 {page.label}
+
+Next.js version: 16.1.6 (Turbopack)
+## Error Type
+Console Error
+
+## Error Message
+In HTML, <h2> cannot be a child of <h2>.
+This will cause a hydration error.
+
+  ...
+    <ErrorBoundary errorComponent={undefined} errorStyles={undefined} errorScripts={undefined}>
+      <LoadingBoundary name="homepage/" loading={null}>
+        <HTTPAccessFallbackBoundary notFound={undefined} forbidden={undefined} unauthorized={undefined}>
+          <RedirectBoundary>
+            <RedirectErrorBoundary router={{...}}>
+              <InnerLayoutRouter url="/admin/tra..." tree={[...]} params={{slug:"home..."}} ...>
+                <SegmentViewNode type="page" pagePath="(admin)/ad...">
+                  <SegmentTrieNode>
+                  <PreviewPage>
+                    <HomePageEditor>
+                      <div className="relative">
+                        <div>
+                        <div className="overflow-h..." style={{...}}>
+                          <section>
+                          <section className="py-32 bg-s...">
+                            <div className="container ...">
+                              <div className="text-cente...">
+                                <span>
+>                               <h2 className="text-5xl font-serif text-gray-800">
+                                  <EditableText value="services.t..." tKey="HomePage.s..." tag="h2" ...>
+>                                   <h2
+>                                     ref={{current:null}}
+>                                     className="text-5xl font-serif text-gray-800 relative group cursor-pointer"
+>                                     onClick={function onClick}
+>                                     title="Нажмите чтобы редактировать"
+>                                   >
+                                ...
+                              ...
+                          ...
+                ...
+              ...
+
+
+
+    at h2 (<anonymous>:null:null)
+    at EditableText (app/(admin)/admin/(dashboard)/translations/HomePageEditor.tsx:82:5)
+    at e (app/(admin)/admin/(dashboard)/translations/HomePageEditor.tsx:161:5)
+    at HomePageEditor (app/(admin)/admin/(dashboard)/translations/HomePageEditor.tsx:251:66)
+    at PreviewPage (app\(admin)\admin\(dashboard)\translations\preview\[slug]\page.tsx:31:10)
+
+## Code Frame
+  80 |
+  81 |   return (
+> 82 |     <Tag
+     |     ^
+  83 |       ref={ref as React.RefObject<HTMLElement & HTMLHeadingElement & HTMLParagraphElement>}
+  84 |       className={`${className} relative group cursor-pointer`}
+  85 |       onClick={() => setEditing(true)}
+
+Next.js version: 16.1.6 (Turbopack)
+## Error Type
+Console Error
+
+## Error Message
+<h2> cannot contain a nested <h2>.
+See this log for the ancestor stack trace.
+
+
+    at h2 (<anonymous>:null:null)
+    at HomePageEditor (app/(admin)/admin/(dashboard)/translations/HomePageEditor.tsx:251:15)
+    at PreviewPage (app\(admin)\admin\(dashboard)\translations\preview\[slug]\page.tsx:31:10)
+
+## Code Frame
+  249 |                 {e('services.subtitle')}
+  250 |               </span>
+> 251 |               <h2 className="text-5xl font-serif text-gray-800">{e('services.title', 'h2', 'text-5xl font-serif text-gray-800')}</h2>
+      |               ^
+  252 |               <div className="w-20 h-px bg-yellow-600 mx-auto mt-6" />
+  253 |             </div>
+  254 |
+
+Next.js version: 16.1.6 (Turbopack)
+## Error Type
+Console Error
+
+## Error Message
+In HTML, <h3> cannot be a child of <h3>.
+This will cause a hydration error.
+
+  ...
+    <LoadingBoundary name="homepage/" loading={null}>
+      <HTTPAccessFallbackBoundary notFound={undefined} forbidden={undefined} unauthorized={undefined}>
+        <RedirectBoundary>
+          <RedirectErrorBoundary router={{...}}>
+            <InnerLayoutRouter url="/admin/tra..." tree={[...]} params={{slug:"home..."}} ...>
+              <SegmentViewNode type="page" pagePath="(admin)/ad...">
+                <SegmentTrieNode>
+                <PreviewPage>
+                  <HomePageEditor>
+                    <div className="relative">
+                      <div>
+                      <div className="overflow-h..." style={{...}}>
+                        <section>
+                        <section className="py-32 bg-s...">
+                          <div className="container ...">
+                            <div>
+                            <div className="grid grid-...">
+                              <div className="p-8 bg-whi...">
+                                <div>
+>                               <h3 className="text-2xl font-serif mb-4 text-gray-800">
+                                  <EditableText value="services.f..." tKey="HomePage.s..." tag="h3" ...>
+>                                   <h3
+>                                     ref={{current:null}}
+>                                     className="text-2xl font-serif text-gray-800 relative group cursor-pointer"
+>                                     onClick={function onClick}
+>                                     title="Нажмите чтобы редактировать"
+>                                   >
+                                ...
+                              ...
+                        ...
+              ...
+            ...
+
+
+
+    at h3 (<anonymous>:null:null)
+    at EditableText (app/(admin)/admin/(dashboard)/translations/HomePageEditor.tsx:82:5)
+    at e (app/(admin)/admin/(dashboard)/translations/HomePageEditor.tsx:161:5)
+    at <unknown> (app/(admin)/admin/(dashboard)/translations/HomePageEditor.tsx:264:22)
+    at Array.map (<anonymous>:null:null)
+    at HomePageEditor (app/(admin)/admin/(dashboard)/translations/HomePageEditor.tsx:260:17)
+    at PreviewPage (app\(admin)\admin\(dashboard)\translations\preview\[slug]\page.tsx:31:10)
+
+## Code Frame
+  80 |
+  81 |   return (
+> 82 |     <Tag
+     |     ^
+  83 |       ref={ref as React.RefObject<HTMLElement & HTMLHeadingElement & HTMLParagraphElement>}
+  84 |       className={`${className} relative group cursor-pointer`}
+  85 |       onClick={() => setEditing(true)}
+
+Next.js version: 16.1.6 (Turbopack)
+## Error Type
+Console Error
+
+## Error Message
+<h3> cannot contain a nested <h3>.
+See this log for the ancestor stack trace.
+
+
+    at h3 (<anonymous>:null:null)
+    at <unknown> (app/(admin)/admin/(dashboard)/translations/HomePageEditor.tsx:263:19)
+    at Array.map (<anonymous>:null:null)
+    at HomePageEditor (app/(admin)/admin/(dashboard)/translations/HomePageEditor.tsx:260:17)
+    at PreviewPage (app\(admin)\admin\(dashboard)\translations\preview\[slug]\page.tsx:31:10)
+
+## Code Frame
+  261 |                 <div key={prefix} className="p-8 bg-white border border-yellow-600/20 hover:border-yellow-600 hover:shadow-xl transition-all duration-300">
+  262 |                   <div className="text-4xl mb-6">{icon}</div>
+> 263 |                   <h3 className="text-2xl font-serif mb-4 text-gray-800">
+      |                   ^
+  264 |                     {e(`${prefix}.title`, 'h3', 'text-2xl font-serif text-gray-800')}
+  265 |                   </h3>
+  266 |                   <p className="text-gray-500 mb-6 leading-relaxed">
+
+Next.js version: 16.1.6 (Turbopack)
+## Error Type
+Console Error
+
+## Error Message
+In HTML, <p> cannot be a descendant of <p>.
+This will cause a hydration error.
+
+  ...
+    <LoadingBoundary name="homepage/" loading={null}>
+      <HTTPAccessFallbackBoundary notFound={undefined} forbidden={undefined} unauthorized={undefined}>
+        <RedirectBoundary>
+          <RedirectErrorBoundary router={{...}}>
+            <InnerLayoutRouter url="/admin/tra..." tree={[...]} params={{slug:"home..."}} ...>
+              <SegmentViewNode type="page" pagePath="(admin)/ad...">
+                <SegmentTrieNode>
+                <PreviewPage>
+                  <HomePageEditor>
+                    <div className="relative">
+                      <div>
+                      <div className="overflow-h..." style={{...}}>
+                        <section>
+                        <section className="py-32 bg-s...">
+                          <div className="container ...">
+                            <div>
+                            <div className="grid grid-...">
+                              <div className="p-8 bg-whi...">
+                                <div>
+                                <h3>
+>                               <p className="text-gray-500 mb-6 leading-relaxed">
+                                  <EditableText value="services.f..." tKey="HomePage.s..." tag="p" ...>
+>                                   <p
+>                                     ref={{current:null}}
+>                                     className="text-gray-500 relative group cursor-pointer"
+>                                     onClick={function onClick}
+>                                     title="Нажмите чтобы редактировать"
+>                                   >
+                                ...
+                              ...
+                        ...
+              ...
+            ...
+
+
+
+    at p (<anonymous>:null:null)
+    at EditableText (app/(admin)/admin/(dashboard)/translations/HomePageEditor.tsx:82:5)
+    at e (app/(admin)/admin/(dashboard)/translations/HomePageEditor.tsx:161:5)
+    at <unknown> (app/(admin)/admin/(dashboard)/translations/HomePageEditor.tsx:267:22)
+    at Array.map (<anonymous>:null:null)
+    at HomePageEditor (app/(admin)/admin/(dashboard)/translations/HomePageEditor.tsx:260:17)
+    at PreviewPage (app\(admin)\admin\(dashboard)\translations\preview\[slug]\page.tsx:31:10)
+
+## Code Frame
+  80 |
+  81 |   return (
+> 82 |     <Tag
+     |     ^
+  83 |       ref={ref as React.RefObject<HTMLElement & HTMLHeadingElement & HTMLParagraphElement>}
+  84 |       className={`${className} relative group cursor-pointer`}
+  85 |       onClick={() => setEditing(true)}
+
+Next.js version: 16.1.6 (Turbopack)
+## Error Type
+Console Error
+
+## Error Message
+<p> cannot contain a nested <p>.
+See this log for the ancestor stack trace.
+
+
+    at p (<anonymous>:null:null)
+    at <unknown> (app/(admin)/admin/(dashboard)/translations/HomePageEditor.tsx:266:19)
+    at Array.map (<anonymous>:null:null)
+    at HomePageEditor (app/(admin)/admin/(dashboard)/translations/HomePageEditor.tsx:260:17)
+    at PreviewPage (app\(admin)\admin\(dashboard)\translations\preview\[slug]\page.tsx:31:10)
+
+## Code Frame
+  264 |                     {e(`${prefix}.title`, 'h3', 'text-2xl font-serif text-gray-800')}
+  265 |                   </h3>
+> 266 |                   <p className="text-gray-500 mb-6 leading-relaxed">
+      |                   ^
+  267 |                     {e(`${prefix}.description`, 'p', 'text-gray-500')}
+  268 |                   </p>
+  269 |                   <span className="text-yellow-600 text-sm uppercase tracking-wider">
+
+Next.js version: 16.1.6 (Turbopack)

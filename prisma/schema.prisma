@@ -80,16 +80,27 @@ model Booking {
 model Gallery {
   id        String   @id @default(cuid())
   url       String
-  publicId  String
+  publicId  String   @unique
+  alt       String?
+  category  String?
+  page      String   @default("gallery")  // Добавьте эту строку если её нет
+  order     Int      @default(0)
   createdAt DateTime @default(now())
+
+  @@index([page])
 }
 
 model Translation {
   id        String   @id @default(cuid())
-  locale    String
-  namespace String
-  key       String
+  lang      String   // "en", "ru", "pl", "uk"
+  section   String   // "Header", "HomePage", etc.
+  key       String   // "hero.title", "form.email.label", etc.
   value     String
+  updatedAt DateTime @updatedAt @default(now())
+
+  @@unique([lang, section, key])
+  @@index([lang])
+  @@index([section])
 }
 
 model Package {
@@ -116,6 +127,7 @@ model Service {
   icon  String
   title String
   desc  String
+  price String?
 }
 
 model ContactInfo {

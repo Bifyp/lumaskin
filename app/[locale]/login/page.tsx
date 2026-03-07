@@ -10,12 +10,7 @@ export default function LoginPage() {
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-
-    await signIn("credentials", {
-      email,
-      password,
-      callbackUrl: "/",
-    });
+    await signIn("credentials", { email, password, callbackUrl: "/" });
   }
 
   return (
@@ -70,16 +65,10 @@ export default function LoginPage() {
 
               <div className="flex items-center justify-between">
                 <label className="flex items-center gap-2 cursor-pointer">
-                  <input 
-                    type="checkbox" 
-                    className="w-4 h-4 accent-gold"
-                  />
+                  <input type="checkbox" className="w-4 h-4 accent-gold" />
                   <span className="text-graphite/60 text-sm">{t('form.rememberMe')}</span>
                 </label>
-                <a 
-                  href="/forgot-password" 
-                  className="text-gold text-sm hover:underline"
-                >
+                <a href="/forgot-password" className="text-gold text-sm hover:underline">
                   {t('form.forgotPassword')}
                 </a>
               </div>
@@ -90,28 +79,6 @@ export default function LoginPage() {
               >
                 <span className="relative z-10">{t('form.submitButton')}</span>
                 <div className="absolute inset-0 bg-graphite transform translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
-              </button>
-
-              <div className="relative my-8">
-                <div className="absolute inset-0 flex items-center">
-                  <div className="w-full border-t border-gold/20"></div>
-                </div>
-                <div className="relative flex justify-center text-sm">
-                  <span className="px-4 bg-white text-graphite/50 uppercase tracking-wider">
-                    {t('form.or')}
-                  </span>
-                </div>
-              </div>
-
-              <button
-                type="button"
-                onClick={() => signIn("google")}
-                className="border-2 border-gold/30 text-graphite w-full py-4 rounded-md font-sans uppercase tracking-widest text-sm transition-all duration-300 hover:border-gold hover:bg-gold/5 hover:-translate-y-1 flex items-center justify-center gap-3"
-              >
-                <svg className="w-5 h-5" viewBox="0 0 24 24">
-                  <path fill="currentColor" d="M12.545,10.239v3.821h5.445c-0.712,2.315-2.647,3.972-5.445,3.972c-3.332,0-6.033-2.701-6.033-6.032s2.701-6.032,6.033-6.032c1.498,0,2.866,0.549,3.921,1.453l2.814-2.814C17.503,2.988,15.139,2,12.545,2C7.021,2,2.543,6.477,2.543,12s4.478,10,10.002,10c8.396,0,10.249-7.85,9.426-11.748L12.545,10.239z"/>
-                </svg>
-                {t('form.googleButton')}
               </button>
 
               <p className="text-center text-graphite/50 text-sm mt-6">
@@ -143,17 +110,13 @@ export default function LoginPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
             {t.raw('benefits.items').map((benefit: any, idx: number) => (
-              <div 
+              <div
                 key={idx}
                 className="text-center p-8 bg-white border border-gold/20 transition-all duration-500 hover:border-gold hover:shadow-xl hover:-translate-y-2"
               >
                 <div className="text-5xl mb-4">{benefit.icon}</div>
-                <h3 className="text-xl font-serif mb-3 text-graphite">
-                  {benefit.title}
-                </h3>
-                <p className="text-graphite/70 text-sm leading-relaxed">
-                  {benefit.desc}
-                </p>
+                <h3 className="text-xl font-serif mb-3 text-graphite">{benefit.title}</h3>
+                <p className="text-graphite/70 text-sm leading-relaxed">{benefit.desc}</p>
               </div>
             ))}
           </div>

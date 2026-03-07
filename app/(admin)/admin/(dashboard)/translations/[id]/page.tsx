@@ -30,8 +30,8 @@ export default async function EditTranslationPage({ params }: { params: { id: st
           <label className="block mb-1 font-medium">Locale</label>
           <input
             type="text"
-            name="locale"
-            defaultValue={translation.locale}
+            name="lang"
+            defaultValue={translation.lang}
             className="w-full border rounded p-2"
             required
           />

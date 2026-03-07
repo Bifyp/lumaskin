@@ -1,8 +1,14 @@
-import { NextResponse } from "next/server";
+// app/api/send-code/route.ts
+import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { sendEmailCode } from "@/lib/mail";
+import { withRateLimit, LIMITS } from "@/lib/rate-limiter";
 
-export async function POST(req: Request) {
+export async function POST(req: NextRequest) {
+  // 3 отправки кода за 1 час с одного IP
+  const limited = await withRateLimit(req, LIMITS.passwordReset);
+  if (limited) return limited;
+
   const { email } = await req.json();
 
   const user = await prisma.user.findUnique({ where: { email } });
@@ -16,15 +22,15 @@ export async function POST(req: Request) {
     data: {
       email,
       code,
-      expiresAt: new Date(Date.now() + 1000 * 60 * 10)
-    }
+      expiresAt: new Date(Date.now() + 1000 * 60 * 10),
+    },
   });
 
   try {
     await sendEmailCode(email, code);
     console.log("✅ Письмо отправлено на", email);
   } catch (err) {
-    console.error("❌ Ошибка отправки письма:", err); // ВОТ ЭТО ГЛАВНОЕ
+    console.error("❌ Ошибка отправки письма:", err);
     return NextResponse.json({ error: "MAIL_SEND_FAILED", details: String(err) }, { status: 500 });
   }
 

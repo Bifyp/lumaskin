@@ -1,6 +1,5 @@
 'use client';
 import { useTranslations } from 'next-intl';
-import LazyImage from "../../../components/LazyImage";
 
 export default function ContactPage() {
   const t = useTranslations('ContactPage');
@@ -147,66 +146,7 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* РАСПОЛОЖЕНИЕ + КАРТА */}
-      <section className="py-32 fade-right">
-        <div className="container px-6">
-          <div className="max-w-6xl mx-auto">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
-              <div>
-                <span className="text-gold/60 uppercase tracking-[0.3em] text-sm font-sans mb-4 block">
-                  {t('location.subtitle')}
-                </span>
-                <h2 className="text-5xl font-serif mb-8 text-graphite leading-tight">
-                  {t('location.title')}<br/>{t('location.titleLine2')}
-                </h2>
-                
-                <p className="text-graphite/70 font-sans mb-6 leading-relaxed text-lg">
-                  {t('location.description')}
-                </p>
-
-                <div className="space-y-4 mb-8">
-                  {t.raw('location.transport').map((item: any, idx: number) => (
-                    <div key={idx} className="flex items-start gap-4">
-                      <span className="text-gold text-2xl">{item.icon}</span>
-                      <div>
-                        <h4 className="font-sans font-semibold text-graphite mb-1">
-                          {item.title}
-                        </h4>
-                        <p className="text-graphite/70 text-sm">
-                          {item.desc}
-                        </p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-
-                <a 
-                  href="https://maps.google.com" 
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-3 text-gold font-sans uppercase tracking-wider border-b-2 border-gold/30 pb-2 hover:border-gold transition-all duration-300"
-                >
-                  {t('location.mapLink')}
-                  <span className="text-xl">→</span>
-                </a>
-              </div>
-
-              <div className="relative">
-                <div className="absolute -top-6 -left-6 w-full h-full border-2 border-gold/20 -z-10"></div>
-                <div className="w-full h-125 bg-linear-to-br from-gold/10 to-graphite/10 shadow-2xl flex items-center justify-center">
-                  <div className="text-center p-8">
-                    <span className="text-6xl mb-4 block">🗺️</span>
-                    <p className="text-graphite/60 font-sans">
-                      {t('location.mapPlaceholder')}<br/>
-                      <span className="text-sm">(Google Maps iframe)</span>
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+     
 
       {/* РЕЖИМ РАБОТЫ */}
       <section className="py-32 bg-graphite text-graphite fade-up">
@@ -268,18 +208,47 @@ export default function ContactPage() {
           </p>
 
           <div className="flex gap-6 justify-center items-center flex-wrap">
-            {t.raw('social.platforms').map((social: any, idx: number) => (
-              <a 
-                key={idx}
-                href={social.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group flex items-center gap-3 px-8 py-4 border-2 border-gold text-gold font-sans uppercase tracking-widest text-sm rounded-sm transition-all duration-300 hover:bg-gold hover:text-white hover:-translate-y-1"
-              >
-                <span className="text-2xl">{social.icon}</span>
-                {social.name}
-              </a>
-            ))}
+            <a
+              href="https://www.instagram.com/lumaskin_laser_studio"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram"
+              title="Instagram"
+              className="group flex items-center gap-3 px-8 py-4 border-2 border-gold text-gold font-sans uppercase tracking-widest text-sm rounded-sm transition-all duration-300 hover:bg-gold hover:text-white hover:-translate-y-1"
+            >
+              <span className="text-2xl">
+                <img draggable="false" className="ext-emoji" alt="📷" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f4f7.svg" />
+              </span>
+              Instagram
+            </a>
+
+            <a
+              href="https://www.facebook.com/share/1DGrdC9RvF/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Facebook"
+              title="Facebook"
+              className="group flex items-center gap-3 px-8 py-4 border-2 border-gold text-gold font-sans uppercase tracking-widest text-sm rounded-sm transition-all duration-300 hover:bg-gold hover:text-white hover:-translate-y-1"
+            >
+              <span className="text-2xl">
+                <img draggable="false" className="ext-emoji" alt="📘" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f4d8.svg" />
+              </span>
+              Facebook
+            </a>
+
+            <a
+              href="https://booksy.com/pl-pl/307205_lumaskin-laser-studio_depilacja_16974_swarzedz#ba_s=seo"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Booksy"
+              title="Booksy"
+              className="group flex items-center gap-3 px-8 py-4 border-2 border-gold text-gold font-sans uppercase tracking-widest text-sm rounded-sm transition-all duration-300 hover:bg-gold hover:text-white hover:-translate-y-1"
+            >
+              <span className="text-2xl">
+                <img draggable="false" className="ext-emoji" alt="💆‍♀️" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f486-200d-2640-fe0f.svg" />
+              </span>
+              Booksy
+            </a>
           </div>
         </div>
       </section>

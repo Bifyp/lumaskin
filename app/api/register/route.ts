@@ -1,9 +1,16 @@
+// app/api/register/route.ts
+import { NextRequest } from "next/server";
 import { PrismaClient } from "@prisma/client";
 import { sendEmailCode } from "@/lib/mail";
+import { withRateLimit, LIMITS } from "@/lib/rate-limiter";
 
 const prisma = new PrismaClient();
 
-export async function POST(req: Request) {
+export async function POST(req: NextRequest) {
+  // 5 попыток регистрации за 15 минут с одного IP
+  const limited = await withRateLimit(req, LIMITS.auth);
+  if (limited) return limited;
+
   const { email, password } = await req.json();
 
   const existing = await prisma.user.findUnique({ where: { email } });

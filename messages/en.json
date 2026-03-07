@@ -1,323 +1,265 @@
 {
-  "Header": {
-    "home": "Home",
-    "services": "Services",
-    "packages": "Packages",
-    "gallery": "Gallery",
-    "about": "About",
-    "contact": "Contact",
-    "login": "Log in",
-    "logout": "Log out",
-    "language": "Language",
-    "user": "User",
-    "admin": "Administrator",
-    "account": "My account",
-    "register": "Register",
-    "adminPanel": "Admin panel"
-  },
-  "HomePage": {
-    "hero": {
-      "subtitle": "Premium care",
-      "title": "Beauty as",
-      "titleAccent": "art",
-      "description": "LumaSkin — professional care studio,",
-      "descriptionLine2": "where aesthetics meets science",
-      "bookButton": "Book now",
-      "servicesButton": "Our services"
-    },
-    "services": {
-      "subtitle": "What we offer",
-      "title": "Popular treatments",
-      "facial": {
-        "title": "Facial cleansing",
-        "description": "Deep cleansing and skin regeneration using professional products",
-        "icon": "✨"
-      },
-      "peeling": {
-        "title": "Peeling",
-        "description": "Skin renewal and texture improvement for natural radiance",
-        "icon": "🌟"
-      },
-      "massage": {
-        "title": "Facial massage",
-        "description": "Lifting, relaxation and skin glow with proven techniques",
-        "icon": "💎"
-      },
-      "learnMore": "Learn more"
-    },
-    "about": {
-      "subtitle": "Professionalism and passion",
-      "title": "Experience and care",
-      "titleLine2": "for your skin",
-      "paragraph1": "Over 5 years of experience in cosmetology. Individual approach, premium products and modern methods to achieve the perfect result.",
-      "paragraph2": "Each treatment is a unique protocol, developed specifically for your skin type and needs.",
-      "learnMore": "Meet me",
-      "imageAlt": "LumaSkin Master"
-    },
-    "stats": {
-      "title": "Why choose us",
-      "experience": {
-        "number": "5+",
-        "label": "Years of experience"
-      },
-      "clients": {
-        "number": "1000+",
-        "label": "Happy clients"
-      },
-      "procedures": {
-        "number": "15+",
-        "label": "Treatment types"
-      },
-      "premium": {
-        "number": "100%",
-        "label": "Premium care"
-      }
-    },
-    "contact": {
-      "subtitle": "We are at your service",
-      "title": "Visit us",
-      "description": "Our studio is located in the heart of the city",
-      "address": "5 Zamkowa Street, Swarzędz",
-      "contactButton": "Contact us",
-      "callButton": "Call now"
-    }
-  },
   "AboutPage": {
+    "cta": {
+      "bookButton": "Book Now",
+      "description": "Book a consultation and we will create an individual care program especially for you",
+      "servicesButton": "Services",
+      "title": "Ready to start your journey",
+      "titleAccent": "to perfect skin"
+    },
     "hero": {
-      "subtitle": "Our story",
-      "title": "About",
+      "subtitle": "Our Story",
+      "title": "About the Studio",
       "titleAccent": "LumaSkin"
     },
-    "mission": {
-      "subtitle": "Our philosophy",
-      "title": "We believe that beauty is not only about appearance, but also inner harmony",
-      "paragraph1": "LumaSkin is a space where modern technology meets individual approach. Each treatment is created especially for you, taking into account your skin's characteristics and your goals.",
-      "paragraph2": "We use only premium products and proven methods so you can trust us with what's most precious — your health and beauty."
-    },
     "master": {
-      "subtitle": "Studio founder",
-      "name": "Anna Kowalska",
-      "title": "Certified aesthetician",
-      "paragraph1": "For over 5 years I have been helping people gain confidence through skin care. My specialization is deep work with problematic skin and anti-aging programs.",
-      "paragraph2": "I have trained at leading European academies, regularly participate in masterclasses and conferences to stay up to date with the latest advances in cosmetology.",
-      "quote": "For me, every client is a unique story. I don't just perform treatments, I create a path to a better version of yourself.",
-      "certificatesTitle": "Certificates and education:",
       "certificates": [
         "Warsaw Academy of Cosmetology, 2018",
         "Chemical Peels Certificate, 2020",
         "Mesotherapy and Biorevitalization Course, 2021",
         "Facial Massage Techniques Masterclass, 2023"
       ],
-      "imageAlt": "Anna Kowalska — founder of LumaSkin"
+      "certificatesTitle": "Certificates and Education:",
+      "imageAlt": "Nadia Khalakhan - founder of LumaSkin",
+      "name": "Nadia Khalakhan",
+      "paragraph1": "For over 5 years I have been helping people gain confidence through skin care. My specialization is deep work with problem skin and anti-age programs.",
+      "paragraph2": "I have trained at leading European academies and regularly attend masterclasses and conferences to stay up to date with the latest advances in cosmetology.",
+      "quote": "For me, every client is a unique story. I don't just perform procedures — I create a path to a better version of yourself.",
+      "subtitle": "Studio Founder",
+      "title": "Certified Cosmetologist-Aesthetician"
     },
-    "values": {
-      "subtitle": "Our principles",
-      "title": "What matters to us",
+    "mission": {
+      "paragraph1": "LumaSkin is a space where modern technologies meet an individual approach. Each procedure is created especially for you, taking into account the characteristics of your skin and your goals.",
+      "paragraph2": "We use only premium products and proven methods so that you can trust us with the most valuable thing — your health and beauty.",
+      "subtitle": "Our Philosophy",
+      "title": "We believe that beauty is not only appearance, but inner harmony"
+    },
+    "reviews": {
       "items": [
         {
-          "icon": "🎯",
-          "title": "Individual approach",
-          "desc": "No two clients are alike. Each program is developed individually for your needs and skin type."
+          "name": "Maria K.",
+          "text": "Anna is a true professional! After a course of cleansings my skin transformed. Finally found my master!",
+          "service": "Facial Cleansing"
         },
         {
-          "icon": "💎",
-          "title": "Premium quality",
-          "desc": "We use only trusted brands and luxury products. No compromises on quality."
+          "name": "Katarzyna W.",
+          "text": "Very happy with the peeling result. Skin became smooth and radiant. Cozy studio, great atmosphere.",
+          "service": "Chemical Peel"
         },
         {
-          "icon": "🔬",
-          "title": "Scientific approach",
-          "desc": "All treatments are based on proven methods and the latest research in cosmetology."
+          "name": "Agnieszka N.",
+          "text": "I've been going for facial massage for 6 months. The lifting effect is visible! Anna is always attentive and professional.",
+          "service": "Facial Massage"
         },
         {
-          "icon": "🤝",
-          "title": "Trust and care",
-          "desc": "Your comfort and safety are our priority. We create an atmosphere of trust and care."
-        },
-        {
-          "icon": "📚",
-          "title": "Continuous development",
-          "desc": "We regularly train and master new techniques to offer the best."
-        },
-        {
-          "icon": "✨",
-          "title": "Visible result",
-          "desc": "We work for long-term effect, not temporary results. Your skin will thank you."
+          "name": "Ewa S.",
+          "text": "Wonderful studio and excellent master. Individual approach, quality products. Highly recommend!",
+          "service": "Skin Care"
         }
-      ]
+      ],
+      "subtitle": "Client Reviews",
+      "title": "What They Say About Us"
     },
     "studio": {
-      "subtitle": "Our space",
-      "title": "Studio created",
-      "titleLine2": "for your comfort",
-      "paragraph": "Every detail at LumaSkin is thought through to the smallest detail. From soft lighting to comfortable temperature — everything is created so you can completely relax.",
       "features": [
-        "Modern equipment of the latest generation",
+        "State-of-the-art equipment",
         "Sterility and compliance with all safety standards",
         "Cozy atmosphere and relaxing music",
         "Individual rooms for complete privacy"
       ],
-      "linkText": "Visit us",
-      "imageAlt": "LumaSkin studio interior"
+      "imageAlt": "LumaSkin Studio Interior",
+      "linkText": "Visit Us",
+      "paragraph": "Every detail at LumaSkin is carefully thought out. From soft lighting to comfortable temperature — everything is designed so you can completely relax.",
+      "subtitle": "Our Space",
+      "title": "The Studio is Created",
+      "titleLine2": "for Your Comfort"
     },
-    "reviews": {
-      "subtitle": "Client reviews",
-      "title": "What they say about us",
+    "values": {
       "items": [
         {
-          "name": "Maria K.",
-          "text": "Anna is a true professional! After the cleansing course, my skin transformed. Finally found my master!",
-          "service": "Facial cleansing"
+          "icon": "🎯",
+          "title": "Individual Approach",
+          "desc": "No two clients are the same. Each program is developed individually for your needs and skin type."
         },
         {
-          "name": "Katarzyna W.",
-          "text": "Very satisfied with the peeling results. Skin became smooth and radiant. Cozy studio, relaxing atmosphere.",
-          "service": "Chemical peel"
+          "icon": "💎",
+          "title": "Premium Quality",
+          "desc": "We use only proven brands and luxury products. No compromises on quality."
         },
         {
-          "name": "Agnieszka N.",
-          "text": "I've been coming for facial massage for half a year. Visible lifting effect! Anna is always attentive and professional.",
-          "service": "Facial massage"
+          "icon": "🔬",
+          "title": "Scientific Approach",
+          "desc": "All procedures are based on proven methods and the latest research in cosmetology."
         },
         {
-          "name": "Ewa S.",
-          "text": "Wonderful studio and great master. Individual approach, quality products. I recommend to everyone!",
-          "service": "Skin care"
+          "icon": "🤝",
+          "title": "Trust and Care",
+          "desc": "Your comfort and safety are our priority. We create an atmosphere of trust and care."
+        },
+        {
+          "icon": "📚",
+          "title": "Continuous Development",
+          "desc": "We regularly train and master new techniques to offer the best."
+        },
+        {
+          "icon": "✨",
+          "title": "Visible Results",
+          "desc": "We work for long-term effect, not temporary results. Your skin will thank you."
         }
-      ]
-    },
-    "cta": {
-      "title": "Ready to start your journey",
-      "titleAccent": "to perfect skin",
-      "description": "Book a consultation and we will create an individual care program especially for you",
-      "bookButton": "Book now",
-      "servicesButton": "View services"
+      ],
+      "subtitle": "Our Principles",
+      "title": "What Matters to Us"
     }
   },
-"BookingPage": {
-  "hero": {
-    "subtitle": "Online booking",
-    "title": "Create your",
-    "titleAccent": "perfect treatment"
-  },
-
-  "form": {
-    "title": "Your details",
-    "description": "Please fill out the form below to complete your booking.",
-
-    "fields": {
-      "firstName": {
-        "label": "First name",
-        "placeholder": "Enter your first name"
-      },
-      "lastName": {
-        "label": "Last name",
-        "placeholder": "Enter your last name"
-      },
-      "phone": {
-        "label": "Phone",
-        "placeholder": "+48 000 000 000"
-      },
-      "email": {
-        "label": "Email",
-        "placeholder": "example@mail.com"
-      },
-      "service": {
-        "label": "Service",
-        "placeholder": "Choose a service",
-        "options": [
-          "Facial cleansing",
-          "Massage",
-          "Peeling",
-          "Laser hair removal",
-          "Skin care treatment"
-        ]
-      },
-      "date": {
-        "label": "Date",
-        "placeholder": "Choose a date"
-      },
-      "time": {
-        "label": "Time",
-        "placeholder": "Choose a time",
-        "options": [
-          "10:00",
-          "11:00",
-          "12:00",
-          "13:00",
-          "14:00",
-          "15:00",
-          "16:00",
-          "17:00",
-          "18:00"
-        ]
-      },
-      "comment": {
-        "label": "Comment",
-        "placeholder": "Additional notes or preferences (optional)"
-      }
+  "AccountPage": {
+    "admin": {
+      "button": "Go to Admin Panel"
     },
-
-    "submit": "Book now",
-    "submitButton": "Confirm booking",
-    "requiredNote": "Fields marked with * are required.",
-    "success": "Your booking was successful!"
+    "bookings": {
+      "actions": {
+        "bookAgain": "Book Again",
+        "cancel": "Cancel",
+        "reschedule": "Reschedule"
+      },
+      "empty": "You have no bookings yet",
+      "history": "Booking History",
+      "makeFirst": "Make Your First Booking",
+      "statuses": {
+        "cancelled": "Cancelled",
+        "completed": "Completed",
+        "confirmed": "Confirmed",
+        "rescheduled": "Rescheduled"
+      },
+      "upcoming": "Upcoming Bookings"
+    },
+    "profile": {
+      "editButton": "Edit Profile",
+      "guest": "Guest"
+    },
+    "quickActions": {
+      "loyalty": "Loyalty Program",
+      "loyaltyDesc": "View your bonuses and privileges",
+      "newBooking": "New Booking",
+      "newBookingDesc": "Book the nearest available time"
+    },
+    "stats": {
+      "totalBookings": "Total Bookings",
+      "totalSpent": "Total Spent",
+      "upcoming": "Upcoming Bookings"
+    },
+    "subtitle": "Your bookings, statistics and settings",
+    "title": "Personal Account"
   },
-
-  "contact": {
-    "text": "If you have any questions or prefer to book by phone:",
-    "phone": "+48 000 000 000"
-  },
-
-  "info": {
-    "title": "Why clients choose us",
-    "items": [
-      {
-        "title": "Premium treatments",
-        "text": "We use only certified cosmetics and modern skincare techniques."
+  "BookingPage": {
+    "contact": {
+      "phone": "+48 123 456 789",
+      "text": "If you have questions or want to book by phone:"
+    },
+    "faq": {
+      "items": [
+        {
+          "question": "Is a prepayment required?",
+          "answer": "No, prepayment is not required. Payment is made after the procedure at the salon."
+        },
+        {
+          "question": "Can I reschedule or cancel a booking?",
+          "answer": "Yes, you can reschedule or cancel no later than 24 hours before the procedure."
+        },
+        {
+          "question": "What if I am late?",
+          "answer": "If you are less than 15 minutes late, we will try to keep the full service. For longer delays the procedure time may be reduced."
+        }
+      ],
+      "subtitle": "Frequently Asked Questions",
+      "title": "Everything About Booking and Procedures"
+    },
+    "form": {
+      "description": "Please fill in the form below to complete your booking.",
+      "errorGeneric": "Something went wrong. Please try again.",
+      "errorSlotTaken": "This time slot is already taken, please choose another.",
+      "fields": {
+        "comment": {
+          "label": "Comment",
+          "placeholder": "Additional wishes or comments (optional)"
+        },
+        "date": {
+          "label": "Date",
+          "placeholder": "Choose a date"
+        },
+        "email": {
+          "label": "Email",
+          "placeholder": "example@mail.com"
+        },
+        "firstName": {
+          "label": "First Name",
+          "placeholder": "Enter your first name"
+        },
+        "lastName": {
+          "label": "Last Name",
+          "placeholder": "Enter your last name"
+        },
+        "phone": {
+          "label": "Phone",
+          "placeholder": "+48 000 000 000"
+        },
+        "price": "Price",
+        "service": {
+          "label": "Service",
+          "placeholder": "Choose a service"
+        },
+        "time": {
+          "label": "Time",
+          "placeholder": "Choose a time"
+        }
       },
-      {
-        "title": "Personalized approach",
-        "text": "Each treatment is tailored to your skin’s unique needs."
-      },
-      {
-        "title": "Atmosphere of calm",
-        "text": "Our interior and music create a spa‑like experience, not just a procedure."
-      }
-    ]
-  },
-
-  "faq": {
-    "subtitle": "Frequently asked questions",
-    "title": "Everything about booking and treatments",
-    "items": [
-      {
-        "question": "Do I need to pay in advance?",
-        "answer": "No, prepayment is not required. You pay after the treatment at the salon."
-      },
-      {
-        "question": "Can I reschedule or cancel my appointment?",
-        "answer": "Yes, you can reschedule or cancel your appointment up to 24 hours before the procedure."
-      },
-      {
-        "question": "What if I’m late?",
-        "answer": "If you're less than 15 minutes late, we’ll try to keep the full treatment. If later, the duration may be reduced."
-      }
-    ]
-  }
-},
-  "ContactPage": {
+      "newBooking": "New Booking",
+      "packagePlaceholder": "Choose a package",
+      "requiredNote": "Fields marked with * are required.",
+      "selectedDate": "Selected date",
+      "submit": "Book",
+      "submitButton": "Confirm Booking",
+      "submitting": "Submitting...",
+      "success": "You have successfully booked!",
+      "successDesc": "A confirmation has been sent to your email.",
+      "successTitle": "Booking Received!",
+      "tabPackages": "Packages",
+      "tabServices": "Services",
+      "timeHint": "Choose a convenient time",
+      "title": "Your Details"
+    },
     "hero": {
-      "subtitle": "Contact us",
-      "title": "Get in",
-      "titleAccent": "touch"
+      "subtitle": "Online Booking",
+      "title": "Create Your",
+      "titleAccent": "Perfect Procedure"
     },
+    "info": {
+      "items": [
+        {
+          "icon": "💎",
+          "title": "Premium Procedures",
+          "desc": "We use only certified cosmetics and modern care techniques."
+        },
+        {
+          "icon": "🎯",
+          "title": "Personal Approach",
+          "desc": "Each procedure is selected individually for your skin's characteristics."
+        },
+        {
+          "icon": "✨",
+          "title": "Atmosphere of Calm",
+          "desc": "The interior and music create the feeling of a spa ritual, not just a procedure."
+        }
+      ],
+      "title": "Why Clients Choose Us"
+    }
+  },
+  "ContactPage": {
     "contactInfo": {
       "items": [
         {
           "icon": "📍",
           "title": "Address",
-          "info": "12 Przykładowa Street",
+          "info": "Example Street 12",
           "subinfo": "61-809 Poznań, Poland"
         },
         {
@@ -330,364 +272,442 @@
           "icon": "✉️",
           "title": "Email",
           "info": "info@lumaskin.pl",
-          "subinfo": "We'll reply within 24 hours"
+          "subinfo": "We reply within 24 hours"
         }
       ]
     },
-  
-  "form": {
-    "subtitle": "Contact us",
-    "title": "Have a question?",
-    "description": "Fill out the form and we will get back to you shortly",
-
-    "fields": {
-      "name": { "label": "Name", "placeholder": "Your name" },
-      "email": { "label": "Email", "placeholder": "example@mail.com" },
-      "phone": { "label": "Phone", "placeholder": "+48 000 000 000" },
-      "subject": {
-        "label": "Subject",
-        "placeholder": "-- Select a topic --",
-        "options": [
-          "Service inquiry",
-          "Appointment booking",
-          "Consultation",
-          "Collaboration",
-          "Other"
-        ]
-      },
-      "message": {
-        "label": "Message",
-        "placeholder": "Write your message..."
-      }
-    },
-
-    "submitButton": "Send message",
-    "requiredFields": "* Required fields",
-    "requiredNote": "* Required fields"
-  },
-
-  "location": {
-    "subtitle": "Our location",
-    "title": "Visit our",
-    "titleLine2": "studio",
-    "description": "We are located in the very center of Poznań, in a quiet and cozy area. Easy access by public transport and parking nearby.",
-    "transport": [
-      { "icon": "🚗", "title": "By car", "desc": "Free parking in front of the building" },
-      { "icon": "🚌", "title": "Public transport", "desc": "‘Plac Wolności’ stop is 3 minutes away" },
-      { "icon": "🚶", "title": "On foot", "desc": "5 minutes from the main square" }
-    ],
-    "mapButton": "Open in Google Maps",
-    "mapLink": "Open map",
-    "mapPlaceholder": "Map will appear here"
-  },
-
-  "hours": {
-    "title": "Opening hours",
-    "weekdays": {
-      "title": "Weekdays",
-      "schedule": [
-        { "day": "Monday", "hours": "10:00 - 20:00" },
-        { "day": "Tuesday", "hours": "10:00 - 20:00" },
-        { "day": "Wednesday", "hours": "10:00 - 20:00" },
-        { "day": "Thursday", "hours": "10:00 - 20:00" },
-        { "day": "Friday", "hours": "10:00 - 20:00" }
-      ]
-    },
-    "weekend": {
-      "title": "Weekend",
-      "schedule": [
-        { "day": "Saturday", "hours": "11:00 - 18:00" },
-        { "day": "Sunday", "hours": "Closed" }
-      ],
-      "note": "Visits by prior arrangement. Weekend appointments possible upon agreement."
-    },
-    "note": "Visits by prior arrangement. Weekend appointments possible upon agreement."
-  },
-
-  "social": {
-    "subtitle": "Follow us",
-    "title": "We are on social media",
-    "description": "Follow our pages to stay updated on news, special offers, and skincare tips",
-    "platforms": [
-      { "name": "Instagram", "icon": "📷" },
-      { "name": "Facebook", "icon": "📘" },
-      { "name": "WhatsApp", "icon": "💬" }
-    ]
-  },
-
-  "cta": {
-    "title": "Ready to book",
-    "titleLine2": "which package",
-    "titleAccent": "to choose",
-    "description": "Contact us in any convenient way and we will find the perfect time for your visit",
-    "bookingButton": "Book online",
-    "bookButton": "Book online",
-    "callButton": "Call"
-  }
-},
-  "GalleryPage": {
-  "hero": {
-    "subtitle": "Our work",
-    "title": "Portfolio",
-    "titleAccent": "LumaSkin",
-    "description": "Results we are proud of"
-  },
-
-  "gallery": {
-    "emptyMessage": "No photos uploaded yet",
-    "photoLabel": "Photo",
-    "brandName": "LumaSkin"
-  },
-
-  "categories": {
-    "subtitle": "Our treatments",
-    "title": "What we offer",
-    "items": [
-      { "icon": "✨", "name": "Facial cleansing", "count": "12+ works" },
-      { "icon": "🌟", "name": "Peeling", "count": "8+ works" },
-      { "icon": "💎", "name": "Massage", "count": "15+ works" },
-      { "icon": "💉", "name": "Injections", "count": "10+ works" }
-    ]
-  },
-
-  "reviews": {
-    "subtitle": "Client reviews",
-    "title": "Results speak for themselves",
-    "items": [
-      {
-        "name": "Anna M.",
-        "text": "Incredible results after the cleansing course! My skin is glowing, pores visibly reduced. Huge thanks!"
-      },
-      {
-        "name": "Katarzyna L.",
-        "text": "Facial massage is something else! The oval tightened, swelling disappeared. I feel 10 years younger."
-      }
-    ]
-  },
-
-  "cta": {
-    "title": "Want the same",
-    "titleAccent": "result",
-    "description": "Book a consultation and we will create a program especially for you",
-    "bookingButton": "Book now",
-    "servicesButton": "Our services"
-  }
-},
-  "LoginPage": {
-    "hero": {
-      "title": "Sign in to your",
-      "titleAccent": "account"
+    "cta": {
+      "bookButton": "Book Online",
+      "bookingButton": "Book Online",
+      "callButton": "Call Us",
+      "description": "Contact us in any convenient way and we will find the perfect time for your visit",
+      "title": "Ready to Book",
+      "titleAccent": "choose",
+      "titleLine2": "a package"
     },
     "form": {
+      "description": "Fill in the form and we will contact you shortly",
+      "fields": {
+        "email": {
+          "label": "Email",
+          "placeholder": "example@mail.com"
+        },
+        "message": {
+          "label": "Message",
+          "placeholder": "Write your message..."
+        },
+        "name": {
+          "label": "Name",
+          "placeholder": "Your name"
+        },
+        "phone": {
+          "label": "Phone",
+          "placeholder": "+48 000 000 000"
+        },
+        "subject": {
+          "label": "Subject",
+          "options": [
+            "Question about services",
+            "Book an appointment",
+            "Consultation",
+            "Cooperation",
+            "Other"
+          ],
+          "placeholder": "-- Choose a subject --"
+        }
+      },
+      "requiredFields": "* Fields are required",
+      "requiredNote": "* Fields are required",
+      "submitButton": "Send Message",
+      "subtitle": "Write to Us",
+      "title": "Have Questions?"
+    },
+    "hero": {
+      "subtitle": "Contact Us",
+      "title": "We Are",
+      "titleAccent": "in Touch"
+    },
+    "hours": {
+      "note": "Booking by appointment. Weekend work is possible by arrangement.",
+      "title": "Working Hours",
+      "weekdays": {
+        "schedule": [
+          {
+            "day": "Monday",
+            "hours": "10:00 - 20:00"
+          },
+          {
+            "day": "Tuesday",
+            "hours": "10:00 - 20:00"
+          },
+          {
+            "day": "Wednesday",
+            "hours": "10:00 - 20:00"
+          },
+          {
+            "day": "Thursday",
+            "hours": "10:00 - 20:00"
+          },
+          {
+            "day": "Friday",
+            "hours": "10:00 - 20:00"
+          }
+        ],
+        "title": "Weekdays"
+      },
+      "weekend": {
+        "note": "Booking by appointment. Weekend work is possible by arrangement.",
+        "schedule": [
+          {
+            "day": "Saturday",
+            "hours": "11:00 - 18:00"
+          },
+          {
+            "day": "Sunday",
+            "hours": "Day Off"
+          }
+        ],
+        "title": "Weekend"
+      }
+    },
+    "social": {
+      "description": "Follow us on social media to stay up to date with news, special offers and useful skin care tips.",
+      "platforms": [
+        {
+          "name": "Instagram",
+          "link": "https://www.instagram.com/lumaskin_laser_studio",
+          "icon": "📷"
+        },
+        {
+          "name": "Facebook",
+          "link": "https://www.facebook.com/share/1DGrdC9RvF/",
+          "icon": "📘"
+        },
+        {
+          "name": "Booksy",
+          "link": "https://booksy.com/pl-pl/307205_lumaskin-laser-studio_depilacja_16974_swarzedz#ba_s=seo",
+          "icon": "💆‍♀️"
+        }
+      ],
+      "subtitle": "Stay in Touch",
+      "title": "We Are on Social Media"
+    }
+  },
+  "ForgotPasswordPage": {
+    "description": "Enter your email and we will send a recovery link.",
+    "emailLabel": "Email",
+    "emailPlaceholder": "Enter email",
+    "sentDescription": "If this email exists, we have sent a recovery link.",
+    "sentTitle": "Email Sent",
+    "submit": "Send Link",
+    "title": "Password Recovery"
+  },
+  "GalleryPage": {
+    "categories": {
+      "items": [
+        {
+          "icon": "✨",
+          "name": "Facial Cleansing",
+          "count": "12+ works"
+        },
+        {
+          "icon": "🌟",
+          "name": "Peeling",
+          "count": "8+ works"
+        },
+        {
+          "icon": "💎",
+          "name": "Massage",
+          "count": "15+ works"
+        },
+        {
+          "icon": "💉",
+          "name": "Injections",
+          "count": "10+ works"
+        }
+      ],
+      "subtitle": "Our Procedures",
+      "title": "What We Offer"
+    },
+    "cta": {
+      "bookingButton": "Book Now",
+      "description": "Book a consultation so we can create your personal beauty formula.",
+      "servicesButton": "Our Services",
+      "title": "Want the Same",
+      "titleAccent": "Result"
+    },
+    "gallery": {
+      "brandName": "LumaSkin",
+      "emptyMessage": "No photos uploaded yet",
+      "photoLabel": "Photo"
+    },
+    "hero": {
+      "description": "Results we are proud of",
+      "subtitle": "Our Work",
+      "title": "Portfolio",
+      "titleAccent": "LumaSkin"
+    },
+    "reviews": {
+      "items": [
+        {
+          "name": "Anna M.",
+          "text": "Incredible result after the cleansing course! Skin glows, pores visibly reduced. Thank you so much!"
+        },
+        {
+          "name": "Katarzyna L.",
+          "text": "Facial massage is something incredible! The oval tightened, puffiness gone. I feel 10 years younger."
+        }
+      ],
+      "subtitle": "Client Reviews",
+      "title": "Results Speak for Themselves"
+    }
+  },
+  "Header": {
+    "about": "About Master",
+    "account": "My Account",
+    "admin": "Administrator",
+    "adminPanel": "Admin Panel",
+    "contact": "Contacts",
+    "gallery": "Gallery",
+    "home": "Home",
+    "language": "Language",
+    "login": "Login",
+    "logout": "Logout",
+    "packages": "Packages",
+    "register": "Register",
+    "services": "Services",
+    "user": "User"
+  },
+  "HomePage": {
+    "about": {
+      "imageAlt": "LumaSkin Master",
+      "learnMore": "Learn About Me",
+      "paragraph1": "Over 5 years of experience in cosmetology. Individual approach, premium products and modern methods to achieve the perfect result.",
+      "paragraph2": "Each procedure is a unique protocol developed specifically for your skin type and needs.",
+      "subtitle": "Professionalism and Passion",
+      "title": "Experience and Care",
+      "titleLine2": "for Your Skin"
+    },
+    "contact": {
+      "address": "ul. Zamkowa 5, Swarzędz",
+      "callButton": "Call",
+      "contactButton": "Contact",
+      "description": "Our studio is located in the heart of the city",
+      "subtitle": "At Your Service",
+      "title": "Visit Us"
+    },
+    "hero": {
+      "bookButton": "Book Now",
+      "description": "LumaSkin — a professional care studio",
+      "descriptionLine2": "where aesthetics meets science",
+      "servicesButton": "Services",
+      "subtitle": "Premium Care",
+      "title": "Beaty as",
+      "titleAccent": "art"
+    },
+    "services": {
+      "facial": {
+        "description": "Deep cleansing and skin regeneration using professional preparations",
+        "icon": "✨",
+        "title": "Facial Cleansing"
+      },
+      "learnMore": "Learn More",
+      "massage": {
+        "description": "Lifting, relaxation and skin radiance through proven techniques",
+        "icon": "💎",
+        "title": "Facial Massage"
+      },
+      "peeling": {
+        "description": "Skin renewal and texture improvement for a natural glow",
+        "icon": "🌟",
+        "title": "Peeling"
+      },
+      "subtitle": "What We Offer",
+      "title": "Popular Procedures"
+    },
+    "stats": {
+      "clients": {
+        "label": "Happy Clients",
+        "number": "1000+"
+      },
+      "experience": {
+        "label": "Years of Experience",
+        "number": "5+"
+      },
+      "premium": {
+        "label": "Premium Care",
+        "number": "100%"
+      },
+      "procedures": {
+        "label": "Types of Procedures",
+        "number": "15+"
+      },
+      "title": "Why Choose Us"
+    }
+  },
+  "LoginPage": {
+    "benefits": {
+      "items": [
+        {
+          "icon": "📅",
+          "title": "Booking History",
+          "desc": "View all your past and future visits in one place"
+        },
+        {
+          "icon": "🎁",
+          "title": "Bonuses and Discounts",
+          "desc": "Earn points and get exclusive offers"
+        },
+        {
+          "icon": "⚡",
+          "title": "Quick Booking",
+          "desc": "Book procedures in one click without re-entering data"
+        }
+      ],
+      "title": "Benefits of Your Personal Account"
+    },
+    "form": {
+      "description": "Log in to track your bookings and procedure history",
       "email": {
         "label": "Email",
         "placeholder": "example@mail.com"
       },
+      "forgotPassword": "Forgot password?",
+      "googleButton": "Sign in with Google",
+      "loginNote": "Log in to track your bookings and procedure history",
+      "noAccount": "No account?",
+      "or": "or",
       "password": {
         "label": "Password",
         "placeholder": "••••••••"
       },
+      "registerLink": "Register",
       "rememberMe": "Remember me",
-      "forgotPassword": "Forgot your password?",
-      "submitButton": "Sign in",
-      "or": "or",
-      "googleButton": "Sign in with Google",
-      "noAccount": "Don’t have an account?",
-      "registerLink": "Create one",
-      "loginNote": "Sign in to track your bookings and treatment history",
-      "description": "Sign in to track your bookings and treatment history"
+      "submitButton": "Login"
     },
-    "benefits": {
-      "title": "Benefits of your account",
-      "items": [
-        {
-          "icon": "📅",
-          "title": "Booking history",
-          "desc": "View all past and upcoming appointments in one place"
-        },
-        {
-          "icon": "🎁",
-          "title": "Rewards & discounts",
-          "desc": "Earn points and receive exclusive offers"
-        },
-        {
-          "icon": "⚡",
-          "title": "Fast booking",
-          "desc": "Book treatments in one click without re‑entering your details"
-        }
-      ]
+    "hero": {
+      "title": "Sign in to",
+      "titleAccent": "Personal Account"
     }
   },
-
+  "PackagesPage": {
+    "empty": {
+      "button": "Add Package",
+      "subtitle": "Create the first package so it appears on the page",
+      "title": "No Packages Added Yet"
+    },
+    "hero": {
+      "description": "Save more by choosing procedures in great bundles",
+      "subtitle": "Premium Service Bundles",
+      "title": "Our",
+      "titleAccent": "Packages"
+    },
+    "packages": [],
+    "selectButton": "Select Package",
+    "validityNote": "* Packages are valid for a limited time from purchase"
+  },
   "RegisterPage": {
+    "benefits": {
+      "items": [
+        {
+          "icon": "🎉",
+          "title": "Welcome Bonus",
+          "desc": "10% discount on your first procedure"
+        },
+        {
+          "icon": "📱",
+          "title": "Personal Account",
+          "desc": "Manage bookings online"
+        },
+        {
+          "icon": "💌",
+          "title": "Exclusive Offers",
+          "desc": "Special promotions just for you"
+        },
+        {
+          "icon": "🌟",
+          "title": "Loyalty Program",
+          "desc": "Earn points for visits"
+        }
+      ],
+      "title": "What Awaits You After Registration"
+    },
+    "form": {
+      "and": "and",
+      "code": {
+        "label": "Verification Code",
+        "placeholder": "Enter 6-digit code"
+      },
+      "confirmPassword": {
+        "label": "Confirm Password",
+        "placeholder": "••••••••"
+      },
+      "email": {
+        "label": "Email",
+        "placeholder": "example@mail.com"
+      },
+      "googleButton": "Register with Google",
+      "haveAccount": "Already have an account?",
+      "loginLink": "Login",
+      "name": {
+        "label": "Full Name",
+        "placeholder": "Anna Kowalska"
+      },
+      "or": "or",
+      "password": {
+        "hint": "Minimum 8 characters",
+        "label": "Password",
+        "placeholder": "••••••••"
+      },
+      "passwordsDontMatch": "Passwords do not match",
+      "privacyLink": "privacy policy",
+      "registerButton": "Register",
+      "terms": "I accept the",
+      "termsLink": "terms of use",
+      "verifyButton": "Verify",
+      "verifyMessage": "We have sent a verification code to"
+    },
     "hero": {
       "title": "Create",
-      "titleAccent": "account"
+      "titleAccent": "Account"
     },
     "intro": {
       "description": "Join LumaSkin and get access to exclusive offers"
     },
-    "form": {
-      "name": {
-        "label": "Full name",
-        "placeholder": "Anna Kowalska"
-      },
-      "email": {
-        "label": "Email",
-        "placeholder": "example@mail.com"
-      },
-      "password": {
-        "label": "Password",
-        "placeholder": "••••••••",
-        "hint": "Minimum 8 characters"
-      },
-      "confirmPassword": {
-        "label": "Confirm password",
-        "placeholder": "••••••••"
-      },
-      "terms": "I accept the",
-      "termsLink": "terms of use",
-      "and": "and",
-      "privacyLink": "privacy policy",
-      "registerButton": "Register",
-      "or": "or",
-      "googleButton": "Sign up with Google",
-      "haveAccount": "Already have an account?",
-      "loginLink": "Log in",
-      "passwordsDontMatch": "Passwords do not match",
-      "verifyMessage": "We sent a verification code to",
-      "code": {
-        "label": "Verification code",
-        "placeholder": "Enter 6-digit code"
-      },
-      "verifyButton": "Verify"
-    },
-    "benefits": {
-      "title": "What awaits you after registration",
-      "items": [
-        { "icon": "🎉", "title": "Welcome bonus", "desc": "10% off your first procedure" },
-        { "icon": "📱", "title": "Personal account", "desc": "Manage your bookings online" },
-        { "icon": "💌", "title": "Exclusive offers", "desc": "Special promotions just for you" },
-        { "icon": "🌟", "title": "Loyalty program", "desc": "Earn points for every visit" }
-      ]
-    },
     "security": {
-      "title": "Your data is protected",
-      "description": "We use modern encryption technologies to protect your personal data. Your information will never be shared with third parties without your consent."
-    }
-  },
-  "PackagesPage": {
-  "hero": {
-    "subtitle": "Premium Service Packages",
-    "title": "Our",
-    "titleAccent": "packages",
-    "description": "Save more by choosing treatments in exclusive bundles"
-  },
-
-  "packages": [],
-
-  "empty": {
-    "title": "No packages added yet",
-    "subtitle": "Create your first package to display it on the page",
-    "button": "Add package"
-  },
-
-  "selectButton": "Select package",
-  "validityNote": "* Packages remain valid for a limited period from the date of purchase"
-},
-  "AccountPage": {
-    "hero": {
-      "title": "Account",
-      "subtitle": "Your bookings, statistics and settings"
-    },
-
-    "profile": {
-      "guest": "Guest",
-      "editButton": "Edit profile"
-    },
-
-    "stats": {
-      "title": "Statistics",
-      "totalBookings": "Total bookings",
-      "upcoming": "Upcoming bookings",
-      "totalSpent": "Total spent"
-    },
-
-    "quickActions": {
-      "title": "Quick actions",
-      "newBooking": "New booking",
-      "newBookingDesc": "Book the nearest available time",
-      "loyalty": "Loyalty program",
-      "loyaltyDesc": "View your bonuses and rewards"
-    },
-
-    "bookings": {
-      "upcoming": "Upcoming bookings",
-      "history": "Booking history",
-      "empty": "You have no bookings yet",
-      "makeFirst": "Make your first booking",
-
-      "statuses": {
-        "confirmed": "Confirmed",
-        "completed": "Completed",
-        "cancelled": "Cancelled",
-        "rescheduled": "Rescheduled"
-      },
-
-      "actions": {
-        "reschedule": "Reschedule",
-        "cancel": "Cancel",
-        "bookAgain": "Book again"
-      }
-    },
-
-    "admin": {
-      "button": "Go to admin panel"
+      "description": "We use modern encryption technologies to protect your personal data. Your information will never be shared with third parties without your consent.",
+      "title": "Your Data is Protected"
     }
   },
   "ServicesPage": {
-  "hero": {
-    "subtitle": "Professional treatments",
-    "title": "Our",
-    "titleAccent": "services",
-    "description": "Personalized protocols, premium products and modern techniques for healthy, glowing skin"
-  },
-
-  "services": [],
-
-  "empty": {
-    "title": "No services added yet",
-    "subtitle": "Add your first service to display it on the website",
-    "button": "Add service"
-  },
-
-  "list": {
-    "subtitle": "What we offer",
-    "title": "Professional care",
-    "description": "Each treatment is designed to match your skin’s needs and your personal goals"
-  },
-
-  "serviceCard": {
-    "learnMore": "Learn more",
-    "selectButton": "Select",
-    "priceFrom": "from"
-  },
-
-  "cta": {
-    "title": "Ready to choose a treatment",
-    "titleAccent": "for yourself",
-    "description": "Book a consultation and we will create a personalized care plan just for you",
-    "bookButton": "Book now",
-    "servicesButton": "All services"
+    "cta": {
+      "bookButton": "Book Now",
+      "description": "Book a consultation so we can create your personal beauty formula.",
+      "servicesButton": "All Services",
+      "title": "Ready to Choose a Procedure",
+      "titleAccent": "for You"
+    },
+    "empty": {
+      "button": "Add Service",
+      "subtitle": "Add the first service so it appears on the website",
+      "title": "No Services Added Yet"
+    },
+    "hero": {
+      "description": "Individual protocols, premium cosmetics and modern techniques for healthy and radiant skin",
+      "subtitle": "Professional Procedures",
+      "title": "Our",
+      "titleAccent": "Services"
+    },
+    "list": {
+      "description": "Each procedure is created taking into account your skin characteristics and goals",
+      "subtitle": "What We Offer",
+      "title": "Professional Care"
+    },
+    "serviceCard": {
+      "learnMore": "Learn More",
+      "priceFrom": "from",
+      "selectButton": "Select"
+    },
+    "services": []
   }
-},
-"ForgotPasswordPage": {
-  "title": "Password recovery",
-  "description": "Enter your email and we will send you a reset link.",
-  "emailLabel": "Email",
-  "emailPlaceholder": "Enter your email",
-  "submit": "Send reset link",
-  "sentTitle": "Email sent",
-  "sentDescription": "If this email exists, we have sent a reset link."
-}
 }
