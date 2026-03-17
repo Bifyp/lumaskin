@@ -87,101 +87,20 @@
 
 ---
 
-## `> QUICK.BOOT`
-
-### Требования
-
-```
-Runtime  ─── Node.js 18+
-Package  ─── npm / yarn / pnpm
-```
-
-### `// STEP 1 — клонирование`
-
-```bash
-git clone https://github.com/Bifyp/lumaskin.git
-cd lumaskin
-```
-
-### `// STEP 2 — зависимости`
-
-```bash
-npm install
-```
-
-### `// STEP 3 — файл окружения`
-
-```bash
-cp .env.example .env.local
-```
-
-### `// STEP 4 — переменные окружения`
-
-Заполните `.env.local`:
-
-```env
-# ── DATABASE ──────────────────────────────────────
-DATABASE_URL="file:./dev.db"
-
-# ── NEXTAUTH ──────────────────────────────────────
-NEXTAUTH_URL="http://localhost:3000"
-NEXTAUTH_SECRET="your-secret-key"
-
-# ── EMAIL (SMTP) ───────────────────────────────────
-SMTP_HOST=smtp.gmail.com
-SMTP_PORT=587
-SMTP_USER=your-email@gmail.com
-SMTP_PASS=your-app-password
-SMTP_FROM=noreply@example.com
-ADMIN_EMAIL=admin@example.com
-
-# ── API KEYS ───────────────────────────────────────
-DEEPL_API_KEY=your-deepl-key
-CLOUDINARY_CLOUD_NAME=your-cloud-name
-CLOUDINARY_API_KEY=your-api-key
-CLOUDINARY_API_SECRET=your-api-secret
-```
-
-### `// STEP 5 — база данных`
-
-```bash
-npx prisma migrate dev
-```
-
-### `// STEP 6 — запуск`
-
-```bash
-npm run dev
-```
-
-```
-ACCESS POINT ──▶  http://localhost:3000
-```
-
----
-
-## `> PRODUCTION.DEPLOY`
-
-```bash
-npm run build && npm run start
-```
-
----
-
 ## `> ARCHITECTURE.MAP`
 
 ```
 lumaskin/
 │
 ├── app/
-│   ├── [locale]/          ◀  публичные страницы с локализацией
-│   ├── admin/             ◀  административная панель
-│   └── api/               ◀  REST API endpoints
+│   ├── [locale]/            публичные страницы с локализацией
+│   ├── admin/               административная панель
+│   └── api/                 REST API endpoints
 │
 ├── lib/
-│   ├── prisma.ts          ◀  Prisma клиент
-│   ├── auth.ts            ◀  конфигурация NextAuth
-│   └── validations.ts     ◀  Zod схемы валидации
+│   ├── prisma.ts            Prisma клиент
+│   ├── auth.ts              конфигурация NextAuth
+│   └── validations.ts       Zod схемы валидации
 │
 └── prisma/
     └── schema.prisma        схема базы данных
@@ -199,34 +118,10 @@ lumaskin/
 ║  POST        ║  /api/bookings               ║  Создание бронирования            ║
 ║  GET         ║  /api/translations           ║  Получение переводов              ║
 ╠══════════════╬══════════════════════════════╬═══════════════════════════════════╣
-║  POST      ║  /api/admin/services         ║  Управление услугами              ║
-║  POST      ║  /api/admin/gallery          ║  Управление галереей              ║
+║  POST        ║  /api/admin/services         ║  Управление услугами              ║
+║  POST        ║  /api/admin/gallery          ║  Управление галереей              ║
 ╚══════════════╩══════════════════════════════╩═══════════════════════════════════╝
                                                                 требует авторизацию
-```
-
----
-
-## `> SERVER.DEPLOY  ──  Hetzner`
-
-```diff
-+ 1. Скопируйте проект на сервер
-+ 2. Создайте .env.local с production-настройками
-+ 3. Установите зависимости и выполните миграции
-
-  npm install
-  npx prisma migrate deploy
-
-+ 4. Соберите проект
-
-  npm run build
-
-+ 5. Запустите сервер
-
-  npm run start
-
-# Рекомендуется для управления процессом:
-  PM2  ·  Systemd  ·  Docker (опционально)
 ```
 
 ---
@@ -234,7 +129,14 @@ lumaskin/
 ## `> LICENSE`
 
 ```
-MIT License — делай что хочешь, упомяни автора.
+  ALL RIGHTS RESERVED
+
+Этот репозиторий открыт исключительно для ознакомления.
+Клонирование, форк, копирование или использование кода —
+полностью или частично — строго запрещено без письменного
+разрешения автора.
+
+© 2026 Bifyp
 ```
 
 ---
