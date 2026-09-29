@@ -1,13 +1,15 @@
 {
-  "name": "12131231",
-  "version": "0.1.0",
+  "name": "lumaskin",
+  "version": "1.0.0",
   "private": true,
+  "engines": { "node": ">=22" },
   "scripts": {
     "dev": "next dev",
     "build": "prisma generate && next build",
-
     "start": "next start",
-    "lint": "eslint",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
+    "check": "npm run lint && npm run typecheck",
     "seed": "tsx prisma/seed.ts"
   },
   "dependencies": {
